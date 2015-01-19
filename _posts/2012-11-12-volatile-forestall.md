@@ -4,7 +4,7 @@ title: "Volatile Forestall"
 date: 2012-11-12 19:38
 comments: false
 published: true
-categories: Apple, Business
+tags: [Apple, Business]
 ---
 
 Among the first articles for Marco Arment's new venture, [The Magazine](http://the-magazine.org), was an article by Michael Lopp called ["Stables and Volatiles"](http://www.randsinrepose.com/archives/2012/11/14/stables_and_volatiles.html).
