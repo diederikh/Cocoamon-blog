@@ -28,8 +28,9 @@ kramdown:
 owner:
   name: Diederik Hoogenboom
   avatar: bio-photo.jpg
-  bio: "Mac/iOS Developer"
+  bio: "Mac/iOS Developer at Obvious Matter"
   email: 
+  web: "http://obviousmatter.com"
   disqus-shortname: 
   twitter: diederikh
   facebook:
@@ -43,7 +44,7 @@ owner:
   github: diederikh
   stackoverflow: 118908/diederikh
   linkedin: diederikhoogenboom
-  instagram: #username
+  instagram: diederik
   lastfm: #username
   tumblr: #username
   pinterest: #username
