@@ -9,7 +9,8 @@ tags: swift
 
 With Objective-C, a common way to define constants you use in your classes -- reuse identifiers, storyboard seque identifier, etc. is to do something like this:
 
-~~~
+{% highlight objective-c %}
+
 # import "ABCThingsTableViewController.h"
 
 // Storyboard constants
@@ -21,7 +22,7 @@ const CGFloat ABCHeaderViewTopMargin = 12.0f;
 @implementation ABCThingsTableViewController
 {
 	...
-~~~
+{% endhighlight %}
 
 Because we use global constants we have to use a prefix to make them unique. 
 
