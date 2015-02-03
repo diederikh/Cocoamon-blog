@@ -9,7 +9,7 @@ tags: swift
 
 With Objective-C, a common way to define constants you use in your classes -- reuse identifiers, storyboard seque identifier, etc. is to do something like this:
 
-~~~ objective-c
+~~~
 # import "ABCThingsTableViewController.h"
 
 // Storyboard constants
