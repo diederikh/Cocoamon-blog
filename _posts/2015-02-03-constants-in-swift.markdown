@@ -28,7 +28,7 @@ Because we use global constants we have to use a prefix to make them unique.
 
 If we translate the example above to Swift we get something like this:
 
-~~~ swift
+{% highlight swift %}
 // Storyboard constants
 static let thingTableViewCell = "ThingTableViewCell";
 
@@ -37,7 +37,7 @@ static let headerViewTopMargin = 12.0;
 
 class ABCThingsTableViewController {
 	...
-~~~
+{% endhighlight %}
 
 In Swift we don't need prefixes as Swift has namespaces; the global variables are defined within the scope of the module only -- by default the application module. 
 Swift also supports something called _type properties_; properties that are defined within the type's definiton and are scoped to the type, not the instance. There is a different syntax for _structs_ and _classes_:
