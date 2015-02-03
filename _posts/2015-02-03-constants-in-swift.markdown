@@ -9,8 +9,7 @@ tags: swift
 
 With Objective-C, a common way to define constants you use in your classes -- reuse identifiers, storyboard seque identifier, etc. is to do something like this:
 
-{% highlight objective-c %}
-
+~~~ objc
 # import "ABCThingsTableViewController.h"
 
 // Storyboard constants
@@ -22,13 +21,13 @@ const CGFloat ABCHeaderViewTopMargin = 12.0f;
 @implementation ABCThingsTableViewController
 {
 	...
-{% endhighlight %}
+~~~
 
 Because we use global constants we have to use a prefix to make them unique. 
 
 If we translate the example above to Swift we get something like this:
 
-{% highlight swift %}
+~~~ swift
 // Storyboard constants
 static let thingTableViewCell = "ThingTableViewCell";
 
@@ -37,7 +36,7 @@ static let headerViewTopMargin = 12.0;
 
 class ABCThingsTableViewController {
 	...
-{% endhighlight %}
+~~~
 
 In Swift we don't need prefixes as Swift has namespaces; the global variables are defined within the scope of the module only -- by default the application module. 
 Swift also supports something called _type properties_; properties that are defined within the type's definiton and are scoped to the type, not the instance. There is a different syntax for _structs_ and _classes_:
