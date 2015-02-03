@@ -69,8 +69,9 @@ class SomeClass {
 class ABCThingsTableViewController {
 	struct Storyboard {
 		static let myTableCellIdentifier = "MyTableViewIdentifier"
-		static let  detailSegueIdentifier = "DetailViewController"
+		static let detailSegueIdentifier = "DetailViewController"
 	}
+	
 	struct Layout {
 		static let topBorderHeight:CGFloat = 44.0
 	}
