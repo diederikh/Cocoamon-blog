@@ -8,7 +8,7 @@ url:
 # Jekyll configuration
 
 permalink:   /:categories/:title/
-markdown:    kramdown
+markdown:    redcarpet
 highlighter: pygments
 sass:
   sass_dir: _sass
@@ -21,11 +21,14 @@ kramdown:
   footnote_nr: 1
   entity_output: as_char
   toc_levels: 1..6
-  use_coderay: false
+  use_coderay: true
+  input: GFM
+
 #  smart_quotes:   lsquo,rsquo,ldquo,rdquo
 
-
-
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+  
 # Site owner
 owner:
   name: Diederik Hoogenboom

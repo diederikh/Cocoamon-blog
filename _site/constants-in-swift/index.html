@@ -1,0 +1,257 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Constants in Swift &#8211; Cocoamon</title>
+<meta name="description" content="With Objective-C, a common way to define constants you use in your classes -- reuse identifiers, storyboard seque identifier, etc. is to do something like this:
+">
+<meta name="keywords" content="swift">
+
+
+
+<!-- Twitter Cards -->
+<meta name="twitter:title" content="Constants in Swift">
+<meta name="twitter:description" content="With Objective-C, a common way to define constants you use in your classes -- reuse identifiers, storyboard seque identifier, etc. is to do something like this:
+">
+<meta name="twitter:site" content="@diederikh">
+<meta name="twitter:creator" content="@diederikh">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/images/default-thumb.png">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Constants in Swift">
+<meta property="og:description" content="With Objective-C, a common way to define constants you use in your classes -- reuse identifiers, storyboard seque identifier, etc. is to do something like this:
+">
+<meta property="og:url" content="/constants-in-swift/">
+<meta property="og:site_name" content="Cocoamon">
+
+
+
+
+
+<link rel="canonical" href="/constants-in-swift/">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Cocoamon Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+	<script src="/assets/js/vendor/html5shiv.min.js"></script>
+	<script src="/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+<link href='//fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700%7CPT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+
+</head>
+
+<body class="post">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="/">Cocoamon</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" id="site-nav" class="nav">
+		    <ul>
+		        
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+<div id="main" role="main">
+  <div class="article-author-side">
+    
+
+
+
+	<img src="/images/bio-photo.jpg" class="bio-photo" alt="Diederik Hoogenboom bio photo">
+
+<h3>Diederik Hoogenboom</h3>
+<p>Mac/iOS Developer at Obvious Matter</p>
+
+<a href="http://twitter.com/diederikh" class="author-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i> Twitter</a>
+<a href="http://obviousmatter.com" class="author-social" target="_blank"><i class="fa fa-fw fa-globe"></i> Web</a>
+
+
+<a href="http://linkedin.com/in/diederikhoogenboom" class="author-social" target="_blank"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a>
+<a href="http://instagram.com/diederik" class="author-social" target="_blank"><i class="fa fa-fw fa-instagram"></i> Instagram</a>
+
+<a href="http://github.com/diederikh" class="author-social" target="_blank"><i class="fa fa-fw fa-github"></i> Github</a>
+<a href="http://stackoverflow.com/users/118908/diederikh" class="author-social" target="_blank"><i class="fa fa-fw fa-stack-overflow"></i> Stackoverflow</a>
+
+
+
+
+
+
+
+
+
+
+  </div>
+  <article class="post">
+    <div class="headline-wrap">
+      
+        <h1><a href="/constants-in-swift/" rel="bookmark" title="Constants in Swift">Constants in Swift</a></h1>
+      
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap">
+      <p>With Objective-C, a common way to define constants you use in your classes -- reuse identifiers, storyboard seque identifier, etc. is to do something like this:</p>
+<div class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="p">@</span><span class="n">import</span> <span class="s">&quot;ABCThingsTableViewController.h&quot;</span>
+
+<span class="c1">// Storyboard constants</span>
+<span class="bp">NSString</span> <span class="o">*</span> <span class="k">const</span> <span class="n">ABCThingTableViewCell</span> <span class="o">=</span> <span class="s">@&quot;ThingTableViewCell&quot;</span><span class="p">;</span>
+
+<span class="c1">// Layout constants</span>
+<span class="k">const</span> <span class="n">CGFloat</span> <span class="n">ABCHeaderViewTopMargin</span> <span class="o">=</span> <span class="mf">12.0f</span><span class="p">;</span>
+
+<span class="k">@implementation</span> <span class="nc">ABCThingsTableViewController</span>
+<span class="p">{</span>
+    <span class="p">...</span>
+</code></pre></div>
+<p>Because we use global constants we have to use a prefix to make them unique. </p>
+
+<p>If we translate the example above to Swift we get something like this:</p>
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">// Storyboard constants</span>
+<span class="k">static</span> <span class="k">let</span> <span class="n">thingTableViewCell</span> <span class="o">=</span> <span class="s">&quot;ThingTableViewCell&quot;</span><span class="p">;</span>
+
+<span class="c1">// Layout constants</span>
+<span class="k">static</span> <span class="k">let</span> <span class="n">headerViewTopMargin</span> <span class="o">=</span> <span class="mf">12.0</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="n">ABCThingsTableViewController</span> <span class="p">{</span>
+    <span class="p">...</span>
+</code></pre></div>
+<p>In Swift we don&#39;t need prefixes as Swift has namespaces; the global variables are defined within the scope of the module only -- by default the application module. 
+Swift also supports something called <em>type properties</em>; properties that are defined within the type&#39;s definiton and are scoped to the type, not the instance. There is a different syntax for <em>structs</em> and <em>classes</em>:</p>
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">struct</span> <span class="n">SomeStruct</span> <span class="p">{</span>
+    <span class="k">static</span> <span class="k">let</span> <span class="nl">topBorderHeight</span><span class="p">:</span><span class="n">CGFloat</span> <span class="o">=</span> <span class="mf">44.0</span>
+    <span class="p">...</span>
+
+<span class="k">class</span> <span class="n">SomeClass</span> <span class="p">{</span>
+    <span class="k">class</span> <span class="k">let</span> <span class="nl">topBorderHeight</span><span class="p">:</span><span class="n">CGFloat</span> <span class="o">=</span> <span class="mf">44.0</span>
+    <span class="p">...</span>
+</code></pre></div>
+<p>Unfortunately, type properties for classes are not supported yet -- as of Februari 2015 it throws an <code>error: class variables not yet supported</code> error.  <em>The Swift Programming Language</em> book does not mention this.</p>
+
+<p>There is an easy workaround for this:</p>
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">class</span> <span class="n">SomeClass</span> <span class="p">{</span>
+    <span class="k">struct</span> <span class="n">SomeStruct</span> <span class="p">{</span>
+        <span class="k">static</span> <span class="k">var</span> <span class="n">someTypeProperty</span>
+    <span class="p">}</span>
+    <span class="p">...</span>
+</code></pre></div>
+<p>We can even use this workaround to our advantage to make the constants structure more clear:</p>
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">class</span> <span class="n">ABCThingsTableViewController</span> <span class="p">{</span>
+    <span class="k">struct</span> <span class="n">Storyboard</span> <span class="p">{</span>
+        <span class="k">static</span> <span class="k">let</span> <span class="n">myTableCellIdentifier</span> <span class="o">=</span> <span class="s">&quot;MyTableViewIdentifier&quot;</span>
+        <span class="k">static</span> <span class="k">let</span>  <span class="n">detailSegueIdentifier</span> <span class="o">=</span> <span class="s">&quot;DetailViewController&quot;</span>
+    <span class="p">}</span>
+    <span class="k">struct</span> <span class="n">Layout</span> <span class="p">{</span>
+        <span class="k">static</span> <span class="k">let</span> <span class="nl">topBorderHeight</span><span class="p">:</span><span class="n">CGFloat</span> <span class="o">=</span> <span class="mf">44.0</span>
+    <span class="p">}</span>
+    <span class="p">...</span>
+</code></pre></div>
+<p>You can use the constants in the following way:</p>
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">func</span> <span class="n">collectionView</span><span class="p">(</span><span class="nl">collectionView</span><span class="p">:</span> <span class="bp">UICollectionView</span><span class="p">,</span> <span class="n">cellForItemAtIndexPath</span> <span class="nl">indexPath</span><span class="p">:</span> <span class="bp">NSIndexPath</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">UICollectionViewCell</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">collectionView</span><span class="p">.</span><span class="n">dequeueReusableCellWithReuseIdentifier</span><span class="p">(</span><span class="n">Storyboard</span><span class="p">.</span><span class="n">myTableCellIdentifier</span><span class="p">,</span> <span class="nl">forIndexPath</span><span class="p">:</span> <span class="n">indexPath</span><span class="p">)</span> 
+    <span class="p">...</span>
+</code></pre></div><div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">// Access from another class</span>
+<span class="k">let</span> <span class="n">offset</span> <span class="o">=</span> <span class="n">ABCThingsTableViewController</span><span class="p">.</span><span class="n">Layout</span><span class="p">.</span><span class="n">topBorderHeight</span>
+</code></pre></div>
+<p>All this results in a nice self-documenting way to define constants without worying about namespace issues.</p>
+
+      <hr />
+      <footer role="contentinfo">
+        <div class="article-author-bottom">
+          
+
+
+
+	<img src="/images/bio-photo.jpg" class="bio-photo" alt="Diederik Hoogenboom bio photo">
+
+<h3>Diederik Hoogenboom</h3>
+<p>Mac/iOS Developer at Obvious Matter</p>
+
+<a href="http://twitter.com/diederikh" class="author-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i> Twitter</a>
+<a href="http://obviousmatter.com" class="author-social" target="_blank"><i class="fa fa-fw fa-globe"></i> Web</a>
+
+
+<a href="http://linkedin.com/in/diederikhoogenboom" class="author-social" target="_blank"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a>
+<a href="http://instagram.com/diederik" class="author-social" target="_blank"><i class="fa fa-fw fa-instagram"></i> Instagram</a>
+
+<a href="http://github.com/diederikh" class="author-social" target="_blank"><i class="fa fa-fw fa-github"></i> Github</a>
+<a href="http://stackoverflow.com/users/118908/diederikh" class="author-social" target="_blank"><i class="fa fa-fw fa-stack-overflow"></i> Stackoverflow</a>
+
+
+
+
+
+
+
+
+
+
+        </div>
+        <p class="byline"><strong>Constants in Swift</strong> was published on <time datetime="2015-02-03T18:10:00+01:00">February 03, 2015</time>.</p>
+      </footer>
+    </div><!-- /.article-wrap -->
+  
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  <div class="related-articles">
+  <h4>You might also enjoy <small class="pull-right">(<a href="/posts/">View all posts</a>)</small></h4>
+    <ul>
+    
+      <li><a href="/volatile-forestall/" title="Volatile Forestall">Volatile Forestall</a></li>
+    
+    </ul>
+    <hr />
+  </div><!-- /.related-articles -->
+  <footer>
+    
+
+<span>&copy; 2015 Diederik Hoogenboom</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+
+	        
+
+</body>
+</html>
