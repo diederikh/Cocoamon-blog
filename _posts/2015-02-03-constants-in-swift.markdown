@@ -107,5 +107,5 @@ class SomeClass {
 	...
 ```
 
-This means we don't need the struct within a class construct to make this all work. I still like and will use the struct within a class to group the 
-static variables as I think it will improve readability.
+This means we don't need the struct within a class construct to make this all work. I still like, and will use, the struct within a class to group the 
+static variables as I think it will improve readability of your code.
