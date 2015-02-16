@@ -93,3 +93,19 @@ let offset = ABCThingsTableViewController.Layout.topBorderHeight
 ```
 
 All this results in a nice self-documenting way to define constants without worying about namespace issues.
+
+
+## Edit
+
+With the release of Swift 1.2 we do have static class variables. 
+
+So this is now valid:
+
+``` swift 
+class SomeClass {
+	static let topBorderHeight:CGFloat = 44.0
+	...
+```
+
+This means we don't need the struct within a class construct to make this all work. I still like and will use the struct within a class to group the 
+static variables as I think it will improve readability.
