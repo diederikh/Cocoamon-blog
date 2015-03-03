@@ -81,11 +81,6 @@
 		<nav role="navigation" id="site-nav" class="nav">
 		    <ul>
 		        
-				    
-				        
-				        
-				    <li><a href="http://www.cocoamon.com" target="_blank"></a></li>
-				
 		    </ul>
 		</nav>
  -->
@@ -197,6 +192,18 @@ Swift also supports something called <em>type properties</em>; properties that a
 </code></pre></div>
 <p>All this results in a nice self-documenting way to define constants without worying about namespace issues.</p>
 
+<h2 id="edit">Edit</h2>
+
+<p>With the release of Swift 1.2 we do have static class variables. </p>
+
+<p>So this is now valid:</p>
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">class</span> <span class="n">SomeClass</span> <span class="p">{</span>
+    <span class="k">static</span> <span class="k">let</span> <span class="nl">topBorderHeight</span><span class="p">:</span><span class="n">CGFloat</span> <span class="o">=</span> <span class="mf">44.0</span>
+    <span class="p">...</span>
+</code></pre></div>
+<p>This means we don&#39;t need the struct within a class construct to make this all work. I still like, and will use, the struct within a class to group the 
+static variables as I think it will improve readability of your code.</p>
+
       <hr />
       <footer role="contentinfo">
         <div class="article-author-bottom">
@@ -240,6 +247,8 @@ Swift also supports something called <em>type properties</em>; properties that a
   <div class="related-articles">
   <h4>You might also enjoy <small class="pull-right">(<a href="/posts/">View all posts</a>)</small></h4>
     <ul>
+    
+      <li><a href="/example-of-objc-dynamics-in-swift/" title="Example of converting Objective-C dynamics to Swift">Example of converting Objective-C dynamics to Swift</a></li>
     
       <li><a href="/volatile-forestall/" title="Volatile Forestall">Volatile Forestall</a></li>
     
