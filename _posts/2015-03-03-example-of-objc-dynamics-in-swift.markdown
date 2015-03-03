@@ -46,6 +46,7 @@ The XIB is called CustomView.xib. We need to strip the module name from the stri
 ``` swift
 var className = NSStringFromClass(self)
 className = split(className, { $0 == "."})[1]	
+
 ```
 
 Looping through the top level objects is the same in Swift. 
@@ -59,7 +60,8 @@ The _as?_ operator used in an _if let_ construct will type cast the object to a 
 ``` swift
 // object is of type Any
 if let text = object as? String {
-	// we only get here if object is a String. text is of type String} 
+	// we only get here if object is a String. text is of type String
+} 
 ```
 
 We can use the _as?_ operator to test if the top level object is of our desired type.
@@ -72,9 +74,9 @@ We can use the _as?_ operator to test if the top level object is of our desired 
  }
 ```
 
-Unfortunately, we cannot use _self_ as the return type. Swift wants to known the type at compile time. Objective-C didn't care about that. In Objective-C the `loadInstanceFromNib` method returned an `NSView *` in Swift we want to return the right type. 
+Unfortunately, we cannot use _self_ as the return type. Swift wants to known the type at compile time. Objective-C didn't care about that. In Objective-C the `loadInstanceFromNib` method returns an `UIView *` in Swift we want to return the right type. 
 
-We want this extension to be useable for any `NSView` subclass. We can use Swift [Generics](https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Generics.html#//apple_ref/doc/uid/TP40014097-CH26-ID179) to accomplish that:
+We want this extension to be useable for any `UIView` subclass. We can use Swift [Generics](https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Generics.html#//apple_ref/doc/uid/TP40014097-CH26-ID179) to accomplish that:
 
 
 ``` swift
