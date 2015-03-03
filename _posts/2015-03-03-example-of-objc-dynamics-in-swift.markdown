@@ -15,7 +15,7 @@ Here is the category:
 ``` objc
 @implementation UIView (NIB)
 
-+ (UIView *) loadInstanceFromNib
++ (UIView *)loadInstanceFromNib
 { 
     NSArray* topLevelObjects = [[NSBundle mainBundle] loadNibNamed: NSStringFromClass([self class]) owner: nil options: nil];
     for (id object in topLevelObjects)
