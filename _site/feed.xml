@@ -4,7 +4,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2015-03-03T09:24:04+01:00</updated>
+<updated>2015-03-03T21:21:16+01:00</updated>
 <id>/</id>
 <author>
   <name>Diederik Hoogenboom</name>
@@ -31,7 +31,7 @@
 &lt;p&gt;Here is the category:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-objc&quot; data-lang=&quot;objc&quot;&gt;&lt;span class=&quot;k&quot;&gt;@implementation&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;UIView&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;(NIB)&lt;/span&gt;
 
-&lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;UIView&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;loadInstanceFromNib&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;UIView&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;loadInstanceFromNib&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; 
     &lt;span class=&quot;bp&quot;&gt;NSArray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;topLevelObjects&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;NSBundle&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mainBundle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;loadNibNamed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;NSStringFromClass&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;owner&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nil&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;topLevelObjects&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -76,9 +76,9 @@ The XIB is called CustomView.xib. We need to strip the module name from the stri
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Unfortunately, we cannot use &lt;em&gt;self&lt;/em&gt; as the return type. Swift wants to known the type at compile time. Objective-C didn&amp;#39;t care about that. In Objective-C the &lt;code&gt;loadInstanceFromNib&lt;/code&gt; method returned an &lt;code&gt;NSView *&lt;/code&gt; in Swift we want to return the right type. &lt;/p&gt;
+&lt;p&gt;Unfortunately, we cannot use &lt;em&gt;self&lt;/em&gt; as the return type. Swift wants to known the type at compile time. Objective-C didn&amp;#39;t care about that. In Objective-C the &lt;code&gt;loadInstanceFromNib&lt;/code&gt; method returns an &lt;code&gt;UIView *&lt;/code&gt; in Swift we want to return the right type. &lt;/p&gt;
 
-&lt;p&gt;We want this extension to be useable for any &lt;code&gt;NSView&lt;/code&gt; subclass. We can use Swift &lt;a href=&quot;https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Generics.html#//apple_ref/doc/uid/TP40014097-CH26-ID179&quot;&gt;Generics&lt;/a&gt; to accomplish that:&lt;/p&gt;
+&lt;p&gt;We want this extension to be useable for any &lt;code&gt;UIView&lt;/code&gt; subclass. We can use Swift &lt;a href=&quot;https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Generics.html#//apple_ref/doc/uid/TP40014097-CH26-ID179&quot;&gt;Generics&lt;/a&gt; to accomplish that:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-swift&quot; data-lang=&quot;swift&quot;&gt;&lt;span class=&quot;k&quot;&gt;extension&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;UIView&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;loadInstanceFromNib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;UIView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;className&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
@@ -229,9 +229,9 @@ static variables as I think it will improve readability of your code.&lt;/p&gt;
 Michael Lopp talks about corporate culture where two different types of people often clash. The &amp;quot;Stables&amp;quot;; the risk-avoiding, rule making kind, struggle to keep everything the same and predictable, where the &amp;quot;Volatiles&amp;quot; are the restless, entrepreneurial bunch who want constant change and take risks to make this happen. 
 Lopp argues that while the Volatiles seems to be out to ruin the company by their unpredictable, and risky behavior, they really need each other as innovation is driven by people who think out of the box and take risks. 
 Management has the responsibility to keep the two camps at peace and make sure they work together.
-When reading the article I couldn&amp;#39;t help drawing a parallel to Steve Forestall&amp;#39;s exit at Apple. &lt;/p&gt;
+When reading the article I couldn&amp;#39;t help drawing a parallel to Scott Forestall&amp;#39;s exit at Apple. &lt;/p&gt;
 
-&lt;p&gt;Rewinding back to October 29, 2012. Apple announces that Steve Forestall and John Browett will leave the company in short notice. While Browett&amp;#39;s immediate exit may not have come as a surprise, Forestall&amp;#39;s was. 
+&lt;p&gt;Rewinding back to October 29, 2012. Apple announces that Scott Forestall and John Browett will leave the company in short notice. While Browett&amp;#39;s immediate exit may not have come as a surprise, Forestall&amp;#39;s was. 
 Forestall was notoriously difficult to work with. Forstall was also credited for the unfavorable skeuomorphic design of recent Apple apps and as one of the advocates of putting OS X on a mobile phone as opposed to the more obvious, and save, choice of the iPod OS. All characteristics of a Volatile. And so was Steve Jobs. If there was a Volatiles club, Steve Jobs would have been their chairman (and Jeff Bezos would have taken over by now).
 Other executives like Tim Cook and Bob Mansfield are part of the Stables team. That&amp;#39;s probably one of the reasons Forestall ran into trouble when then the Stable team took over the reigns. But why now? Surely, Forestall has been part of the company for decades.
 As with many dictatorships, when the dictator dies or is removed, civil war breaks out. Steve Jobs was master at keeping the Stables and Volatiles at bay. &lt;/p&gt;

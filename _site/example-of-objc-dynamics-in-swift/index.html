@@ -76,6 +76,9 @@
 	<div class="site-name">
 		<a href="/">Cocoamon</a>
 	</div><!-- /.site-name -->
+	<div class="rss">
+	<a href="/feed.xml"><i class="fa fa-fw fa-rss"><span>RSS</span></i></a>
+	</div>
 <!-- 
 	<div class="top-navigation">
 		<nav role="navigation" id="site-nav" class="nav">
@@ -132,7 +135,7 @@
 <p>Here is the category:</p>
 <div class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="k">@implementation</span> <span class="bp">UIView</span> <span class="nl">(NIB)</span>
 
-<span class="p">+</span> <span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span> <span class="nf">loadInstanceFromNib</span>
+<span class="p">+</span> <span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nf">loadInstanceFromNib</span>
 <span class="p">{</span> 
     <span class="bp">NSArray</span><span class="o">*</span> <span class="n">topLevelObjects</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSBundle</span> <span class="n">mainBundle</span><span class="p">]</span> <span class="nl">loadNibNamed</span><span class="p">:</span> <span class="n">NSStringFromClass</span><span class="p">([</span><span class="nb">self</span> <span class="k">class</span><span class="p">])</span> <span class="nl">owner</span><span class="p">:</span> <span class="nb">nil</span> <span class="nl">options</span><span class="p">:</span> <span class="nb">nil</span><span class="p">];</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">id</span> <span class="n">object</span> <span class="k">in</span> <span class="n">topLevelObjects</span><span class="p">)</span>
@@ -177,9 +180,9 @@ The XIB is called CustomView.xib. We need to strip the module name from the stri
     <span class="p">}</span>
  <span class="p">}</span>
 </code></pre></div>
-<p>Unfortunately, we cannot use <em>self</em> as the return type. Swift wants to known the type at compile time. Objective-C didn&#39;t care about that. In Objective-C the <code>loadInstanceFromNib</code> method returned an <code>NSView *</code> in Swift we want to return the right type. </p>
+<p>Unfortunately, we cannot use <em>self</em> as the return type. Swift wants to known the type at compile time. Objective-C didn&#39;t care about that. In Objective-C the <code>loadInstanceFromNib</code> method returns an <code>UIView *</code> in Swift we want to return the right type. </p>
 
-<p>We want this extension to be useable for any <code>NSView</code> subclass. We can use Swift <a href="https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Generics.html#//apple_ref/doc/uid/TP40014097-CH26-ID179">Generics</a> to accomplish that:</p>
+<p>We want this extension to be useable for any <code>UIView</code> subclass. We can use Swift <a href="https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Generics.html#//apple_ref/doc/uid/TP40014097-CH26-ID179">Generics</a> to accomplish that:</p>
 <div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">extension</span> <span class="bp">UIView</span> <span class="p">{</span>
     <span class="k">class</span> <span class="k">func</span> <span class="n">loadInstanceFromNib</span><span class="o">&lt;</span><span class="nl">T</span><span class="p">:</span> <span class="bp">UIView</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="o">?</span> <span class="p">{</span>
         <span class="k">var</span> <span class="n">className</span> <span class="o">=</span> <span class="n">T</span><span class="p">.</span><span class="n">description</span><span class="p">()</span>
