@@ -4,7 +4,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2015-03-26T18:47:03+01:00</updated>
+<updated>2015-03-26T19:08:09+01:00</updated>
 <id>/</id>
 <author>
   <name>Diederik Hoogenboom</name>
@@ -238,19 +238,21 @@ As with many dictatorships, when the dictator dies or is removed, civil war brea
 
 &lt;p&gt;As the Apple world is rejoicing the dismissal of Forestall, I wonder if this will not weaken the innovative power of Apple. Apple needs risk-takers. People who, against all odds and sound advice, will do the impossible and put a desktop-class operating system on a mobile phone. &lt;/p&gt;
 
-&lt;p&gt;Here&amp;#39;s to the Crazy Ones... &lt;p&gt;
-    &lt;sup id=&quot;fnref:1&quot;&gt;
-        &lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;
-    &lt;/sup&gt;
-&lt;/p&gt;&lt;/p&gt;
+&lt;p&gt;Here&amp;#39;s to the Crazy Ones... &lt;sup id=&quot;fnref1&quot;&gt;&lt;a href=&quot;#fn1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 
-&lt;!-- 
-[^1]: &quot;Here&#39;s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently.
-They&#39;re not fond of rules and they have no respect for the status quo. You can quote them, disagree with them, glorify or vilify them. About the only thing you cant do is ignore them.
-Because they change things. They push the human race forward. And while some may see them as the crazy ones, we see genius. Because the people who are crazy enough to think they can change the world, are the ones who do.&quot;
+&lt;p&gt;They&amp;#39;re not fond of rules and they have no respect for the status quo. You can quote them, disagree with them, glorify or vilify them. About the only thing you cant do is ignore them.
+Because they change things. They push the human race forward. And while some may see them as the crazy ones, we see genius. Because the people who are crazy enough to think they can change the world, are the ones who do.&amp;quot;&lt;/p&gt;
 
+&lt;div class=&quot;footnotes&quot;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
 
- --&gt;
+&lt;li id=&quot;fn1&quot;&gt;
+&lt;p&gt;&amp;quot;Here&amp;#39;s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently.&amp;nbsp;&lt;a href=&quot;#fnref1&quot; rev=&quot;footnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;/ol&gt;
+&lt;/div&gt;
 
   &lt;p&gt;&lt;a href=&quot;/volatile-forestall/&quot;&gt;Volatile Forestall&lt;/a&gt; was originally published by Diederik Hoogenboom at &lt;a href=&quot;&quot;&gt;Cocoamon&lt;/a&gt; on November 12, 2012.&lt;/p&gt;</content>
 </entry>

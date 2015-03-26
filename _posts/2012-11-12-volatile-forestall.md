@@ -20,16 +20,10 @@ As with many dictatorships, when the dictator dies or is removed, civil war brea
 
 As the Apple world is rejoicing the dismissal of Forestall, I wonder if this will not weaken the innovative power of Apple. Apple needs risk-takers. People who, against all odds and sound advice, will do the impossible and put a desktop-class operating system on a mobile phone. 
 
-Here's to the Crazy Ones... <p>
-    <sup id="fnref:1">
-        <a href="#fn:1" rel="footnote">1</a>
-    </sup>
-</p>
+Here's to the Crazy Ones... [^0]
 
-<!-- 
-[^1]: "Here's to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently.
+[^0]: "Here's to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently.
 They're not fond of rules and they have no respect for the status quo. You can quote them, disagree with them, glorify or vilify them. About the only thing you cant do is ignore them.
 Because they change things. They push the human race forward. And while some may see them as the crazy ones, we see genius. Because the people who are crazy enough to think they can change the world, are the ones who do."
 
 
- -->
