@@ -11,7 +11,6 @@
 <meta name="keywords" content="swift">
 
 
-
 <!-- Twitter Cards -->
 <meta name="twitter:title" content="Example of converting Objective-C dynamics to Swift">
 <meta name="twitter:description" content="Some time ago I had to convert an Objective-C category I use to load UIView&#39;s from XIB&#39;s.
@@ -20,7 +19,7 @@
 <meta name="twitter:creator" content="@diederikh">
 
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="/images/default-thumb.png">
+<meta name="twitter:image" content="http://localhost:4000/images/default-thumb.png">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
@@ -28,15 +27,15 @@
 <meta property="og:title" content="Example of converting Objective-C dynamics to Swift">
 <meta property="og:description" content="Some time ago I had to convert an Objective-C category I use to load UIView&#39;s from XIB&#39;s.
 ">
-<meta property="og:url" content="/example-of-objc-dynamics-in-swift/">
+<meta property="og:url" content="http://localhost:4000/example-of-objc-dynamics-in-swift/">
 <meta property="og:site_name" content="Cocoamon">
 
 
 
 
 
-<link rel="canonical" href="/example-of-objc-dynamics-in-swift/">
-<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Cocoamon Feed">
+<link rel="canonical" href="http://localhost:4000/example-of-objc-dynamics-in-swift/">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Cocoamon Feed">
 
 
 <!-- http://t.co/dKP3o1e -->
@@ -45,22 +44,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
 
 <meta http-equiv="cleartype" content="on">
 
 <!-- HTML5 Shiv and Media Query Support -->
 <!--[if lt IE 9]>
-	<script src="/assets/js/vendor/html5shiv.min.js"></script>
-	<script src="/assets/js/vendor/respond.min.js"></script>
+	<script src="http://localhost:4000/assets/js/vendor/html5shiv.min.js"></script>
+	<script src="http://localhost:4000/assets/js/vendor/respond.min.js"></script>
 <![endif]-->
 
 <!-- Modernizr -->
-<script src="/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
 
 <!-- Bigfootjs -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script src="/assets/js/bigfoot.min.js"></script>
+<script src="http://localhost:4000/assets/js/bigfoot.min.js"></script>
 <script type="text/javascript">
     $.bigfoot();
 </script>
@@ -69,9 +68,9 @@
 
 <!-- Icons -->
 <!-- 16x16 -->
-<link rel="shortcut icon" href="/favicon.ico">
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
 <!-- 32x32 -->
-<link rel="shortcut icon" href="/favicon.png">
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
 
 </head>
 
@@ -81,7 +80,7 @@
 
 <div class="navigation-wrapper">
 	<div class="site-name">
-		<a href="/">Cocoamon</a>
+		<a href="http://localhost:4000/">Cocoamon</a>
 	</div><!-- /.site-name -->
 	<div class="rss">
 	<a href="/feed.xml"><i class="fa fa-fw fa-rss"><span>RSS</span></i></a>
@@ -104,8 +103,7 @@
     
 
 
-
-	<img src="/images/bio-photo.jpg" class="bio-photo" alt="Diederik Hoogenboom bio photo">
+	<img src="http://localhost:4000/images/bio-photo.jpg" class="bio-photo" alt="Diederik Hoogenboom bio photo">
 
 <h3>Diederik Hoogenboom</h3>
 <p>Mac/iOS Developer at Obvious Matter</p>
@@ -133,21 +131,21 @@
   <article class="post">
     <div class="headline-wrap">
       
-        <h1><a href="/example-of-objc-dynamics-in-swift/" rel="bookmark" title="Example of converting Objective-C dynamics to Swift">Example of converting Objective-C dynamics to Swift</a></h1>
+        <h1><a href="http://localhost:4000/example-of-objc-dynamics-in-swift/" rel="bookmark" title="Example of converting Objective-C dynamics to Swift">Example of converting Objective-C dynamics to Swift</a></h1>
       
     </div><!--/ .headline-wrap -->
     <div class="article-wrap">
       <p>Some time ago I had to convert an Objective-C category I use to load UIView&#39;s from XIB&#39;s.</p>
 
 <p>Here is the category:</p>
-<div class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="k">@implementation</span> <span class="bp">UIView</span> <span class="nl">(NIB)</span>
+<div class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="k">@implementation</span> <span class="nc">UIView</span> <span class="p">(</span><span class="nl">NIB</span><span class="p">)</span>
 
-<span class="p">+</span> <span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nf">loadInstanceFromNib</span>
+<span class="k">+</span> <span class="p">(</span><span class="n">UIView</span> <span class="o">*</span><span class="p">)</span><span class="n">loadInstanceFromNib</span>
 <span class="p">{</span> 
-    <span class="bp">NSArray</span><span class="o">*</span> <span class="n">topLevelObjects</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSBundle</span> <span class="n">mainBundle</span><span class="p">]</span> <span class="nl">loadNibNamed</span><span class="p">:</span> <span class="n">NSStringFromClass</span><span class="p">([</span><span class="nb">self</span> <span class="k">class</span><span class="p">])</span> <span class="nl">owner</span><span class="p">:</span> <span class="nb">nil</span> <span class="nl">options</span><span class="p">:</span> <span class="nb">nil</span><span class="p">];</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">id</span> <span class="n">object</span> <span class="k">in</span> <span class="n">topLevelObjects</span><span class="p">)</span>
+    <span class="n">NSArray</span><span class="o">*</span> <span class="n">topLevelObjects</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSBundle</span> <span class="nf">mainBundle</span><span class="p">]</span> <span class="nf">loadNibNamed</span><span class="p">:</span> <span class="n">NSStringFromClass</span><span class="p">([</span><span class="n">self</span> <span class="nf">class</span><span class="p">])</span> <span class="nf">owner</span><span class="p">:</span> <span class="nb">nil</span> <span class="n">options</span><span class="o">:</span> <span class="nb">nil</span><span class="p">];</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">id</span> <span class="n">object</span> <span class="k">in</span> <span class="n">topLevelObjects</span><span class="p">)</span>
     <span class="p">{</span> 
-        <span class="k">if</span> <span class="p">([</span><span class="n">object</span> <span class="nl">isKindOfClass</span><span class="p">:[</span><span class="nb">self</span> <span class="k">class</span><span class="p">]])</span>
+        <span class="k">if</span> <span class="p">([</span><span class="n">object</span> <span class="nf">isKindOfClass</span><span class="p">:[</span><span class="n">self</span> <span class="nf">class</span><span class="p">]])</span>
         <span class="p">{</span> 
             <span class="k">return</span> <span class="n">object</span><span class="p">;</span>
             <span class="k">break</span><span class="p">;</span> 
@@ -157,7 +155,7 @@
 <span class="p">}</span>
 </code></pre></div>
 <p>This category lets you load a custom view from a XIB file with the same name as the custom view&#39;s class. It does this by loading the XIB, looping through all the high-level objects in the XIB and return the first object with the same class as  the <code>loadInstanceFromNib</code> class method is called from.</p>
-<div class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="n">CustomView</span> <span class="o">*</span><span class="n">view</span> <span class="o">=</span> <span class="p">[</span><span class="n">CustomView</span> <span class="n">loadInstanceFromNib</span><span class="p">];</span>
+<div class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="n">CustomView</span> <span class="o">*</span><span class="n">view</span> <span class="o">=</span> <span class="p">[</span><span class="n">CustomView</span> <span class="nf">loadInstanceFromNib</span><span class="p">];</span>
 </code></pre></div>
 <p>How would we convert this category to Swift? Easy.</p>
 
@@ -165,8 +163,9 @@
 
 <p>With loading the XIB we encounter the first problem: <code>NSStringFromClass(self)</code> in Swift will return us the class name prefixed by the module. In most cases this is the application name (e.g. <code>MyApplication.CustomView</code>)
 The XIB is called CustomView.xib. We need to strip the module name from the string returned by <code>NSStringFromClass()</code>:</p>
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">var</span> <span class="n">className</span> <span class="o">=</span> <span class="n">NSStringFromClass</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span>
-<span class="n">className</span> <span class="o">=</span> <span class="n">split</span><span class="p">(</span><span class="n">className</span><span class="p">,</span> <span class="p">{</span> <span class="err">$</span><span class="mi">0</span> <span class="o">==</span> <span class="s">&quot;.&quot;</span><span class="p">})[</span><span class="mi">1</span><span class="p">]</span>   
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">var</span> <span class="nv">className</span> <span class="o">=</span> <span class="kt">NSStringFromClass</span><span class="p">(</span><span class="k">self</span><span class="p">)</span>
+<span class="n">className</span> <span class="o">=</span> <span class="nf">split</span><span class="p">(</span><span class="n">className</span><span class="p">,</span> <span class="p">{</span> <span class="nv">$0</span> <span class="o">==</span> <span class="s">"."</span><span class="p">})[</span><span class="mi">1</span><span class="p">]</span>   
+
 </code></pre></div>
 <p>Looping through the top level objects is the same in Swift. </p>
 
@@ -176,13 +175,13 @@ The XIB is called CustomView.xib. We need to strip the module name from the stri
 
 <p>The <em>as?</em> operator used in an <em>if let</em> construct will type cast the object to a type if the type matches.</p>
 <div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">// object is of type Any</span>
-<span class="k">if</span> <span class="k">let</span> <span class="n">text</span> <span class="o">=</span> <span class="n">object</span> <span class="kt">as</span><span class="o">?</span> <span class="n">String</span> <span class="p">{</span>
+<span class="k">if</span> <span class="k">let</span> <span class="nv">text</span> <span class="o">=</span> <span class="n">object</span> <span class="k">as?</span> <span class="kt">String</span> <span class="p">{</span>
     <span class="c1">// we only get here if object is a String. text is of type String</span>
 <span class="p">}</span> 
 </code></pre></div>
 <p>We can use the <em>as?</em> operator to test if the top level object is of our desired type.</p>
 <div class="highlight"><pre><code class="language-swift" data-lang="swift"> <span class="k">for</span> <span class="n">object</span> <span class="k">in</span> <span class="n">topLevelObjects</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="k">let</span> <span class="n">view</span> <span class="o">=</span> <span class="n">object</span> <span class="kt">as</span><span class="o">?</span> <span class="nb">self</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="k">let</span> <span class="nv">view</span> <span class="o">=</span> <span class="n">object</span> <span class="k">as?</span> <span class="k">self</span> <span class="p">{</span>
         <span class="k">return</span> <span class="n">view</span>
     <span class="p">}</span>
  <span class="p">}</span>
@@ -190,36 +189,36 @@ The XIB is called CustomView.xib. We need to strip the module name from the stri
 <p>Unfortunately, we cannot use <em>self</em> as the return type. Swift wants to known the type at compile time. Objective-C didn&#39;t care about that. In Objective-C the <code>loadInstanceFromNib</code> method returns an <code>UIView *</code> in Swift we want to return the right type. </p>
 
 <p>We want this extension to be useable for any <code>UIView</code> subclass. We can use Swift <a href="https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Generics.html#//apple_ref/doc/uid/TP40014097-CH26-ID179">Generics</a> to accomplish that:</p>
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">extension</span> <span class="bp">UIView</span> <span class="p">{</span>
-    <span class="k">class</span> <span class="k">func</span> <span class="n">loadInstanceFromNib</span><span class="o">&lt;</span><span class="nl">T</span><span class="p">:</span> <span class="bp">UIView</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="o">?</span> <span class="p">{</span>
-        <span class="k">var</span> <span class="n">className</span> <span class="o">=</span> <span class="n">T</span><span class="p">.</span><span class="n">description</span><span class="p">()</span>
-        <span class="n">className</span> <span class="o">=</span> <span class="n">split</span><span class="p">(</span><span class="n">className</span><span class="p">,</span> <span class="p">{</span> <span class="err">$</span><span class="mi">0</span> <span class="o">==</span> <span class="s">&quot;.&quot;</span><span class="p">})[</span><span class="mi">1</span><span class="p">]</span>
-        <span class="k">let</span> <span class="n">nib</span> <span class="o">=</span> <span class="bp">UINib</span><span class="p">(</span><span class="nl">nibName</span><span class="p">:</span><span class="n">className</span><span class="p">,</span> <span class="nl">bundle</span><span class="p">:</span><span class="nb">nil</span><span class="p">)</span>
-        <span class="k">let</span> <span class="n">topLevelObjects</span> <span class="o">=</span> <span class="n">nib</span><span class="p">.</span><span class="n">instantiateWithOwner</span><span class="p">(</span><span class="nb">self</span><span class="p">,</span> <span class="nl">options</span><span class="p">:</span><span class="nb">nil</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">extension</span> <span class="kt">UIView</span> <span class="p">{</span>
+    <span class="kd">class</span> <span class="kd">func</span> <span class="n">loadInstanceFromNib</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UIView</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">T</span><span class="p">?</span> <span class="p">{</span>
+        <span class="k">var</span> <span class="nv">className</span> <span class="o">=</span> <span class="kt">T</span><span class="o">.</span><span class="nf">description</span><span class="p">()</span>
+        <span class="n">className</span> <span class="o">=</span> <span class="nf">split</span><span class="p">(</span><span class="n">className</span><span class="p">,</span> <span class="p">{</span> <span class="nv">$0</span> <span class="o">==</span> <span class="s">"."</span><span class="p">})[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">let</span> <span class="nv">nib</span> <span class="o">=</span> <span class="kt">UINib</span><span class="p">(</span><span class="nv">nibName</span><span class="p">:</span><span class="n">className</span><span class="p">,</span> <span class="nv">bundle</span><span class="p">:</span><span class="kc">nil</span><span class="p">)</span>
+        <span class="k">let</span> <span class="nv">topLevelObjects</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="nf">instantiateWithOwner</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="nv">options</span><span class="p">:</span><span class="kc">nil</span><span class="p">)</span>
 
         <span class="k">for</span> <span class="n">object</span> <span class="k">in</span> <span class="n">topLevelObjects</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="k">let</span> <span class="n">view</span> <span class="o">=</span> <span class="n">object</span> <span class="kt">as</span><span class="o">?</span> <span class="n">T</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="k">let</span> <span class="nv">view</span> <span class="o">=</span> <span class="n">object</span> <span class="k">as?</span> <span class="kt">T</span> <span class="p">{</span>
                 <span class="k">return</span> <span class="n">view</span>
             <span class="p">}</span>
         <span class="p">}</span>
-        <span class="k">return</span> <span class="nb">nil</span>
+        <span class="k">return</span> <span class="kc">nil</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Instead of looping through the top level objects with a for-loop, a more functional approach could be taken. Using a filter on the top level objects array will give us only the objects that match our criteria. This time we can use the <em>is</em> operator.</p>
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">extension</span> <span class="bp">UIView</span> <span class="p">{</span>
-    <span class="k">static</span> <span class="k">func</span> <span class="n">loadInstanceFromNib</span><span class="o">&lt;</span><span class="nl">T</span><span class="p">:</span> <span class="bp">UIView</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="o">?</span> <span class="p">{</span>
-        <span class="k">var</span> <span class="n">className</span> <span class="o">=</span> <span class="n">T</span><span class="p">.</span><span class="n">description</span><span class="p">()</span>
-        <span class="n">className</span> <span class="o">=</span> <span class="n">split</span><span class="p">(</span><span class="n">className</span><span class="p">,</span> <span class="p">{</span> <span class="err">$</span><span class="mi">0</span> <span class="o">==</span> <span class="s">&quot;.&quot;</span><span class="p">})[</span><span class="mi">1</span><span class="p">]</span>
-        <span class="k">let</span> <span class="n">nib</span> <span class="o">=</span> <span class="bp">UINib</span><span class="p">(</span><span class="nl">nibName</span><span class="p">:</span><span class="n">className</span><span class="p">,</span> <span class="nl">bundle</span><span class="p">:</span><span class="nb">nil</span><span class="p">)</span>
-        <span class="k">let</span> <span class="n">topLevelObjects</span> <span class="o">=</span> <span class="n">nib</span><span class="p">.</span><span class="n">instantiateWithOwner</span><span class="p">(</span><span class="nb">self</span><span class="p">,</span> <span class="nl">options</span><span class="p">:</span><span class="nb">nil</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">extension</span> <span class="kt">UIView</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="kd">func</span> <span class="n">loadInstanceFromNib</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UIView</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">T</span><span class="p">?</span> <span class="p">{</span>
+        <span class="k">var</span> <span class="nv">className</span> <span class="o">=</span> <span class="kt">T</span><span class="o">.</span><span class="nf">description</span><span class="p">()</span>
+        <span class="n">className</span> <span class="o">=</span> <span class="nf">split</span><span class="p">(</span><span class="n">className</span><span class="p">,</span> <span class="p">{</span> <span class="nv">$0</span> <span class="o">==</span> <span class="s">"."</span><span class="p">})[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">let</span> <span class="nv">nib</span> <span class="o">=</span> <span class="kt">UINib</span><span class="p">(</span><span class="nv">nibName</span><span class="p">:</span><span class="n">className</span><span class="p">,</span> <span class="nv">bundle</span><span class="p">:</span><span class="kc">nil</span><span class="p">)</span>
+        <span class="k">let</span> <span class="nv">topLevelObjects</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="nf">instantiateWithOwner</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="nv">options</span><span class="p">:</span><span class="kc">nil</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">topLevelObjects</span><span class="p">.</span><span class="n">filter</span><span class="p">{</span> <span class="err">$</span><span class="mi">0</span> <span class="kt">is</span> <span class="n">T</span> <span class="p">}.</span><span class="n">first</span> <span class="kt">as</span><span class="o">?</span> <span class="n">T</span>
+        <span class="k">return</span> <span class="n">topLevelObjects</span><span class="o">.</span><span class="n">filter</span><span class="p">{</span> <span class="nv">$0</span> <span class="k">is</span> <span class="kt">T</span> <span class="p">}</span><span class="o">.</span><span class="n">first</span> <span class="k">as?</span> <span class="kt">T</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>The extension can be used in the following way:</p>
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">if</span> <span class="k">let</span> <span class="nl">view</span><span class="p">:</span><span class="n">CustomView</span> <span class="o">=</span> <span class="bp">UIView</span><span class="p">.</span><span class="n">loadInstanceFromNib</span><span class="p">()</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">if</span> <span class="k">let</span> <span class="nv">view</span><span class="p">:</span><span class="kt">CustomView</span> <span class="o">=</span> <span class="kt">UIView</span><span class="o">.</span><span class="nf">loadInstanceFromNib</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// Do something with the view</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -231,8 +230,7 @@ The XIB is called CustomView.xib. We need to strip the module name from the stri
           
 
 
-
-	<img src="/images/bio-photo.jpg" class="bio-photo" alt="Diederik Hoogenboom bio photo">
+	<img src="http://localhost:4000/images/bio-photo.jpg" class="bio-photo" alt="Diederik Hoogenboom bio photo">
 
 <h3>Diederik Hoogenboom</h3>
 <p>Mac/iOS Developer at Obvious Matter</p>
@@ -266,12 +264,8 @@ The XIB is called CustomView.xib. We need to strip the module name from the stri
 
 <div class="footer-wrap">
   <div class="related-articles">
-  <h4>You might also enjoy <small class="pull-right">(<a href="/posts/">View all posts</a>)</small></h4>
+  <h4>You might also enjoy <small class="pull-right">(<a href="http://localhost:4000/posts/">View all posts</a>)</small></h4>
     <ul>
-    
-      <li><a href="/constants-in-swift/" title="Constants in Swift">Constants in Swift</a></li>
-    
-      <li><a href="/volatile-forestall/" title="Volatile Forestall">Volatile Forestall</a></li>
     
     </ul>
     <hr />
@@ -279,14 +273,14 @@ The XIB is called CustomView.xib. We need to strip the module name from the stri
   <footer>
     
 
-<span>&copy; 2015 Diederik Hoogenboom</span>
+<span>&copy; 2017 Diederik Hoogenboom</span>
 
   </footer>
 </div><!-- /.footer-wrap -->
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-<script src="/assets/js/scripts.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
 
 
 <!-- Asynchronous Google Analytics snippet -->
