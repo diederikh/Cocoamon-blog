@@ -171,7 +171,7 @@
 <p>With loading the XIB we encounter the first problem: <code class="highlighter-rouge">NSStringFromClass(self)</code> in Swift will return us the class name prefixed by the module. In most cases this is the application name (e.g. <code class="highlighter-rouge">MyApplication.CustomView</code>)
 The XIB is called CustomView.xib. We need to strip the module name from the string returned by <code class="highlighter-rouge">NSStringFromClass()</code>:</p>
 
-<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="nv">className</span> <span class="o">=</span> <span class="kt">NSStringFromClass</span><span class="p">(</span><span class="k">self</span><span class="p">)</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="nv">className</span> <span class="o">=</span> <span class="nf">NSStringFromClass</span><span class="p">(</span><span class="k">self</span><span class="p">)</span>
 <span class="n">className</span> <span class="o">=</span> <span class="nf">split</span><span class="p">(</span><span class="n">className</span><span class="p">,</span> <span class="p">{</span> <span class="nv">$0</span> <span class="o">==</span> <span class="s">"."</span><span class="p">})[</span><span class="mi">1</span><span class="p">]</span>	
 
 </code></pre></div></div>
@@ -185,15 +185,15 @@ The XIB is called CustomView.xib. We need to strip the module name from the stri
 <p>The <em>as?</em> operator used in an <em>if let</em> construct will type cast the object to a type if the type matches.</p>
 
 <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// object is of type Any</span>
-<span class="k">if</span> <span class="k">let</span> <span class="nv">text</span> <span class="o">=</span> <span class="n">object</span> <span class="k">as?</span> <span class="kt">String</span> <span class="p">{</span>
+<span class="k">if</span> <span class="k">let</span> <span class="nv">text</span> <span class="o">=</span> <span class="n">object</span> <span class="k">as?</span> <span class="nf">String</span> <span class="p">{</span>
 	<span class="c1">// we only get here if object is a String. text is of type String</span>
 <span class="p">}</span> 
 </code></pre></div></div>
 
 <p>We can use the <em>as?</em> operator to test if the top level object is of our desired type.</p>
 
-<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">for</span> <span class="n">object</span> <span class="k">in</span> <span class="n">topLevelObjects</span> <span class="p">{</span>
- 	<span class="k">if</span> <span class="k">let</span> <span class="nv">view</span> <span class="o">=</span> <span class="n">object</span> <span class="k">as?</span> <span class="k">self</span> <span class="p">{</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">for</span> <span class="n">object</span> <span class="k">in</span> <span class="nf">topLevelObjects</span> <span class="p">{</span>
+ 	<span class="k">if</span> <span class="k">let</span> <span class="nv">view</span> <span class="o">=</span> <span class="n">object</span> <span class="k">as?</span> <span class="nf">self</span> <span class="p">{</span>
        	<span class="k">return</span> <span class="n">view</span>
  	<span class="p">}</span>
  <span class="p">}</span>
@@ -203,15 +203,15 @@ The XIB is called CustomView.xib. We need to strip the module name from the stri
 
 <p>We want this extension to be useable for any <code class="highlighter-rouge">UIView</code> subclass. We can use Swift <a href="https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Generics.html#//apple_ref/doc/uid/TP40014097-CH26-ID179">Generics</a> to accomplish that:</p>
 
-<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">UIView</span> <span class="p">{</span>
-    <span class="kd">class</span> <span class="kd">func</span> <span class="n">loadInstanceFromNib</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UIView</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">T</span><span class="p">?</span> <span class="p">{</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">extension</span> <span class="nf">UIView</span> <span class="p">{</span>
+    <span class="kd">class</span> <span class="kd">func</span> <span class="n">loadInstanceFromNib</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UIView</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nf">T</span><span class="p">?</span> <span class="p">{</span>
         <span class="k">var</span> <span class="nv">className</span> <span class="o">=</span> <span class="kt">T</span><span class="o">.</span><span class="nf">description</span><span class="p">()</span>
         <span class="n">className</span> <span class="o">=</span> <span class="nf">split</span><span class="p">(</span><span class="n">className</span><span class="p">,</span> <span class="p">{</span> <span class="nv">$0</span> <span class="o">==</span> <span class="s">"."</span><span class="p">})[</span><span class="mi">1</span><span class="p">]</span>
-        <span class="k">let</span> <span class="nv">nib</span> <span class="o">=</span> <span class="kt">UINib</span><span class="p">(</span><span class="nv">nibName</span><span class="p">:</span><span class="n">className</span><span class="p">,</span> <span class="nv">bundle</span><span class="p">:</span><span class="kc">nil</span><span class="p">)</span>
+        <span class="k">let</span> <span class="nv">nib</span> <span class="o">=</span> <span class="nf">UINib</span><span class="p">(</span><span class="nv">nibName</span><span class="p">:</span><span class="n">className</span><span class="p">,</span> <span class="nv">bundle</span><span class="p">:</span><span class="kc">nil</span><span class="p">)</span>
         <span class="k">let</span> <span class="nv">topLevelObjects</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="nf">instantiateWithOwner</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="nv">options</span><span class="p">:</span><span class="kc">nil</span><span class="p">)</span>
         
-        <span class="k">for</span> <span class="n">object</span> <span class="k">in</span> <span class="n">topLevelObjects</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="k">let</span> <span class="nv">view</span> <span class="o">=</span> <span class="n">object</span> <span class="k">as?</span> <span class="kt">T</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="n">object</span> <span class="k">in</span> <span class="nf">topLevelObjects</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="k">let</span> <span class="nv">view</span> <span class="o">=</span> <span class="n">object</span> <span class="k">as?</span> <span class="nf">T</span> <span class="p">{</span>
                 <span class="k">return</span> <span class="n">view</span>
             <span class="p">}</span>
         <span class="p">}</span>
@@ -222,14 +222,14 @@ The XIB is called CustomView.xib. We need to strip the module name from the stri
 
 <p>Instead of looping through the top level objects with a for-loop, a more functional approach could be taken. Using a filter on the top level objects array will give us only the objects that match our criteria. This time we can use the <em>is</em> operator.</p>
 
-<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">UIView</span> <span class="p">{</span>
-    <span class="kd">static</span> <span class="kd">func</span> <span class="n">loadInstanceFromNib</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UIView</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">T</span><span class="p">?</span> <span class="p">{</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">extension</span> <span class="nf">UIView</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="kd">func</span> <span class="n">loadInstanceFromNib</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UIView</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nf">T</span><span class="p">?</span> <span class="p">{</span>
         <span class="k">var</span> <span class="nv">className</span> <span class="o">=</span> <span class="kt">T</span><span class="o">.</span><span class="nf">description</span><span class="p">()</span>
         <span class="n">className</span> <span class="o">=</span> <span class="nf">split</span><span class="p">(</span><span class="n">className</span><span class="p">,</span> <span class="p">{</span> <span class="nv">$0</span> <span class="o">==</span> <span class="s">"."</span><span class="p">})[</span><span class="mi">1</span><span class="p">]</span>
-        <span class="k">let</span> <span class="nv">nib</span> <span class="o">=</span> <span class="kt">UINib</span><span class="p">(</span><span class="nv">nibName</span><span class="p">:</span><span class="n">className</span><span class="p">,</span> <span class="nv">bundle</span><span class="p">:</span><span class="kc">nil</span><span class="p">)</span>
+        <span class="k">let</span> <span class="nv">nib</span> <span class="o">=</span> <span class="nf">UINib</span><span class="p">(</span><span class="nv">nibName</span><span class="p">:</span><span class="n">className</span><span class="p">,</span> <span class="nv">bundle</span><span class="p">:</span><span class="kc">nil</span><span class="p">)</span>
         <span class="k">let</span> <span class="nv">topLevelObjects</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="nf">instantiateWithOwner</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="nv">options</span><span class="p">:</span><span class="kc">nil</span><span class="p">)</span>
         
-        <span class="k">return</span> <span class="n">topLevelObjects</span><span class="o">.</span><span class="n">filter</span><span class="p">{</span> <span class="nv">$0</span> <span class="k">is</span> <span class="kt">T</span> <span class="p">}</span><span class="o">.</span><span class="n">first</span> <span class="k">as?</span> <span class="kt">T</span>
+        <span class="k">return</span> <span class="n">topLevelObjects</span><span class="o">.</span><span class="nf">filter</span><span class="p">{</span> <span class="nv">$0</span> <span class="k">is</span> <span class="kt">T</span> <span class="p">}</span><span class="o">.</span><span class="n">first</span> <span class="k">as?</span> <span class="kt">T</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></div>
@@ -291,7 +291,7 @@ The XIB is called CustomView.xib. We need to strip the module name from the stri
   <footer>
     
 
-<span>&copy; 2017 Diederik Hoogenboom</span>
+<span>&copy; 2018 Diederik Hoogenboom</span>
 
   </footer>
 </div><!-- /.footer-wrap -->

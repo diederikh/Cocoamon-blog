@@ -142,11 +142,11 @@
 
 <div class="language-objective_c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@import</span> <span class="s">"ABCThingsTableViewController.h"</span>
 
-<span class="c1">// Storyboard constants
-</span><span class="n">NSString</span> <span class="o">*</span> <span class="k">const</span> <span class="n">ABCThingTableViewCell</span> <span class="o">=</span> <span class="s">@"ThingTableViewCell"</span><span class="p">;</span>
+<span class="c1">// Storyboard constants</span>
+<span class="n">NSString</span> <span class="o">*</span> <span class="k">const</span> <span class="n">ABCThingTableViewCell</span> <span class="o">=</span> <span class="s">@"ThingTableViewCell"</span><span class="p">;</span>
 
-<span class="c1">// Layout constants
-</span><span class="k">const</span> <span class="n">CGFloat</span> <span class="n">ABCHeaderViewTopMargin</span> <span class="o">=</span> <span class="mi">12</span><span class="p">.</span><span class="mi">0</span><span class="n">f</span><span class="p">;</span>
+<span class="c1">// Layout constants</span>
+<span class="k">const</span> <span class="n">CGFloat</span> <span class="n">ABCHeaderViewTopMargin</span> <span class="o">=</span> <span class="mi">12</span><span class="p">.</span><span class="mi">0</span><span class="n">f</span><span class="p">;</span>
 
 <span class="k">@implementation</span> <span class="nc">ABCThingsTableViewController</span>
 <span class="p">{</span>
@@ -163,18 +163,18 @@
 <span class="c1">// Layout constants</span>
 <span class="kd">static</span> <span class="k">let</span> <span class="nv">headerViewTopMargin</span> <span class="o">=</span> <span class="mf">12.0</span><span class="p">;</span>
 
-<span class="kd">class</span> <span class="kt">ABCThingsTableViewController</span> <span class="p">{</span>
+<span class="kd">class</span> <span class="nf">ABCThingsTableViewController</span> <span class="p">{</span>
 	<span class="o">...</span>
 </code></pre></div></div>
 
 <p>In Swift we don’t need prefixes as Swift has namespaces; the global variables are defined within the scope of the module only – by default the application module. 
 Swift also supports something called <em>type properties</em>; properties that are defined within the type’s definiton and are scoped to the type, not the instance. There is a different syntax for <em>structs</em> and <em>classes</em>:</p>
 
-<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">struct</span> <span class="kt">SomeStruct</span> <span class="p">{</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">struct</span> <span class="nf">SomeStruct</span> <span class="p">{</span>
 	<span class="kd">static</span> <span class="k">let</span> <span class="nv">topBorderHeight</span><span class="p">:</span><span class="kt">CGFloat</span> <span class="o">=</span> <span class="mf">44.0</span>
 	<span class="o">...</span>
 
-<span class="kd">class</span> <span class="kt">SomeClass</span> <span class="p">{</span>
+<span class="kd">class</span> <span class="nf">SomeClass</span> <span class="p">{</span>
 	<span class="kd">class</span> <span class="k">let</span> <span class="nv">topBorderHeight</span><span class="p">:</span><span class="kt">CGFloat</span> <span class="o">=</span> <span class="mf">44.0</span>
 	<span class="o">...</span>
 </code></pre></div></div>
@@ -183,8 +183,8 @@ Swift also supports something called <em>type properties</em>; properties that a
 
 <p>There is an easy workaround for this:</p>
 
-<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">SomeClass</span> <span class="p">{</span>
-	<span class="kd">struct</span> <span class="kt">SomeStruct</span> <span class="p">{</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nf">SomeClass</span> <span class="p">{</span>
+	<span class="kd">struct</span> <span class="nf">SomeStruct</span> <span class="p">{</span>
 		<span class="kd">static</span> <span class="k">var</span> <span class="nv">someTypeProperty</span>
 	<span class="p">}</span>
 	<span class="o">...</span>
@@ -192,13 +192,13 @@ Swift also supports something called <em>type properties</em>; properties that a
 
 <p>We can even use this workaround to our advantage to make the constants structure more clear:</p>
 
-<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">ABCThingsTableViewController</span> <span class="p">{</span>
-	<span class="kd">struct</span> <span class="kt">Storyboard</span> <span class="p">{</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nf">ABCThingsTableViewController</span> <span class="p">{</span>
+	<span class="kd">struct</span> <span class="nf">Storyboard</span> <span class="p">{</span>
 		<span class="kd">static</span> <span class="k">let</span> <span class="nv">myTableCellIdentifier</span> <span class="o">=</span> <span class="s">"MyTableViewIdentifier"</span>
 		<span class="kd">static</span> <span class="k">let</span> <span class="nv">detailSegueIdentifier</span> <span class="o">=</span> <span class="s">"DetailViewController"</span>
 	<span class="p">}</span>
 	
-	<span class="kd">struct</span> <span class="kt">Layout</span> <span class="p">{</span>
+	<span class="kd">struct</span> <span class="nf">Layout</span> <span class="p">{</span>
 		<span class="kd">static</span> <span class="k">let</span> <span class="nv">topBorderHeight</span><span class="p">:</span><span class="kt">CGFloat</span> <span class="o">=</span> <span class="mf">44.0</span>
 	<span class="p">}</span>
 	<span class="o">...</span>
@@ -206,7 +206,7 @@ Swift also supports something called <em>type properties</em>; properties that a
 
 <p>You can use the constants in the following way:</p>
 
-<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">func</span> <span class="nf">collectionView</span><span class="p">(</span><span class="nv">collectionView</span><span class="p">:</span> <span class="kt">UICollectionView</span><span class="p">,</span> <span class="n">cellForItemAtIndexPath</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">NSIndexPath</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UICollectionViewCell</span> <span class="p">{</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">func</span> <span class="nf">collectionView</span><span class="p">(</span><span class="nv">collectionView</span><span class="p">:</span> <span class="kt">UICollectionView</span><span class="p">,</span> <span class="n">cellForItemAtIndexPath</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">NSIndexPath</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nf">UICollectionViewCell</span> <span class="p">{</span>
 	<span class="k">var</span> <span class="nv">cell</span> <span class="o">=</span> <span class="n">collectionView</span><span class="o">.</span><span class="nf">dequeueReusableCellWithReuseIdentifier</span><span class="p">(</span><span class="kt">Storyboard</span><span class="o">.</span><span class="n">myTableCellIdentifier</span><span class="p">,</span> <span class="nv">forIndexPath</span><span class="p">:</span> <span class="n">indexPath</span><span class="p">)</span> 
 	<span class="o">...</span>
 </code></pre></div></div>
@@ -223,7 +223,7 @@ Swift also supports something called <em>type properties</em>; properties that a
 
 <p>So this is now valid:</p>
 
-<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">SomeClass</span> <span class="p">{</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nf">SomeClass</span> <span class="p">{</span>
 	<span class="kd">static</span> <span class="k">let</span> <span class="nv">topBorderHeight</span><span class="p">:</span><span class="kt">CGFloat</span> <span class="o">=</span> <span class="mf">44.0</span>
 	<span class="o">...</span>
 </code></pre></div></div>
@@ -280,7 +280,7 @@ static variables as I think it will improve readability of your code.</p>
   <footer>
     
 
-<span>&copy; 2017 Diederik Hoogenboom</span>
+<span>&copy; 2018 Diederik Hoogenboom</span>
 
   </footer>
 </div><!-- /.footer-wrap -->
