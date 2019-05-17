@@ -1,12 +1,4 @@
----
-layout: post
-title: "Example of converting Objective-C dynamics to Swift"
-date: 2015-03-03 09:30
-comments: false
-published: true
-tags: swift
----
-
+# Example of converting Objective-C dynamics to Swift
 
 Some time ago I had to convert an Objective-C category I use to load UIView's from XIB's.
 

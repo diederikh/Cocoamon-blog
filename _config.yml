@@ -12,13 +12,33 @@ highlighter: rouge
 sass:
   sass_dir: _sass
   style: compressed
+
 plugins:
   - jekyll-sitemap
+  - jekyll-optional-front-matter
+  - jekyll-default-layout
+  - jekyll-titles-from-headings
+  - jekyll-seo-tag
 
+optional_front_matter:
+  enabled: true 
+  
 kramdown:
   auto_ids: true
   syntax_highlighter: rouge
   input: GFM
+
+defaults:
+  - scope:
+      path: "posts"
+      layout: post
+    values:
+      strip_title: true  
+
+titles_from_headings:
+  enabled:     true
+  strip_title: true
+  collections: true
 
 #  smart_quotes:   lsquo,rsquo,ldquo,rdquo
   
@@ -30,29 +50,15 @@ owner:
   email: 
   web: "http://obviousmatter.com"
   disqus-shortname: 
-  twitter: diederikh
-  facebook:
   google:
     plus:
     analytics: UA-59324716-1
     verify: 
     ad-client: 
     ad-slot: 
-  bing-verify: 
   github: diederikh
   stackoverflow: 118908/diederikh
   linkedin: diederikhoogenboom
-  instagram: diederik
-  lastfm: #username
-  tumblr: #username
-  pinterest: #username
-  foursquare: #username
-  steam: #username
-  dribbble: #username
-  youtube: #username
-  soundcloud: #username
-  weibo: #username
-  flickr: #username
 
 include: [".htaccess"]
 exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "Gemfile", "Gemfile.lock", "LICENSE", "README.md"]

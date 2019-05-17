@@ -4,3 +4,7 @@ gem "jekyll-sitemap"
 gem 'rouge'
 gem 'kramdown'
 gem 'octopress', '~> 3.0.0.rc.12'
+gem 'jekyll-optional-front-matter'
+gem 'jekyll-default-layout'
+gem 'jekyll-titles-from-headings'
+gem 'jekyll-seo-tag'

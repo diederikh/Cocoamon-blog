@@ -3,22 +3,38 @@
 <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
 <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Constants in Swift Hello | Cocoamon</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Constants in Swift Hello" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Constants in Swift Hello" />
+<meta property="og:description" content="Constants in Swift Hello" />
+<link rel="canonical" href="http://localhost:4000/constants-in-swift/" />
+<meta property="og:url" content="http://localhost:4000/constants-in-swift/" />
+<meta property="og:site_name" content="Cocoamon" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-02-03T00:00:00+01:00" />
+<script type="application/ld+json">
+{"description":"Constants in Swift Hello","@type":"BlogPosting","url":"http://localhost:4000/constants-in-swift/","headline":"Constants in Swift Hello","dateModified":"2015-02-03T00:00:00+01:00","datePublished":"2015-02-03T00:00:00+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/constants-in-swift/"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
 <head>
 <meta charset="utf-8">
-<title>Constants in Swift &#8211; Cocoamon</title>
-<meta name="description" content="With Objective-C, a common way to define constants you use in your classes – reuse identifiers, storyboard seque identifier, etc. is to do something like this:
+<title>Constants in Swift Hello &#8211; Cocoamon</title>
+<meta name="description" content="Constants in Swift Hello
 
 ">
-<meta name="keywords" content="swift">
+<meta name="keywords" content="">
 
 
 <!-- Twitter Cards -->
-<meta name="twitter:title" content="Constants in Swift">
-<meta name="twitter:description" content="With Objective-C, a common way to define constants you use in your classes – reuse identifiers, storyboard seque identifier, etc. is to do something like this:
+<meta name="twitter:title" content="Constants in Swift Hello">
+<meta name="twitter:description" content="Constants in Swift Hello
 
 ">
-<meta name="twitter:site" content="@diederikh">
-<meta name="twitter:creator" content="@diederikh">
+
+
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://localhost:4000/images/default-thumb.png">
@@ -26,8 +42,8 @@
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Constants in Swift">
-<meta property="og:description" content="With Objective-C, a common way to define constants you use in your classes – reuse identifiers, storyboard seque identifier, etc. is to do something like this:
+<meta property="og:title" content="Constants in Swift Hello">
+<meta property="og:description" content="Constants in Swift Hello
 
 ">
 <meta property="og:url" content="http://localhost:4000/constants-in-swift/">
@@ -111,12 +127,12 @@
 <h3>Diederik Hoogenboom</h3>
 <p>Mac/iOS Developer at Obvious Matter</p>
 
-<a href="http://twitter.com/diederikh" class="author-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i> Twitter</a>
+
 <a href="http://obviousmatter.com" class="author-social" target="_blank"><i class="fa fa-fw fa-globe"></i> Web</a>
 
 
 <a href="http://linkedin.com/in/diederikhoogenboom" class="author-social" target="_blank"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a>
-<a href="http://instagram.com/diederik" class="author-social" target="_blank"><i class="fa fa-fw fa-instagram"></i> Instagram</a>
+
 
 <a href="http://github.com/diederikh" class="author-social" target="_blank"><i class="fa fa-fw fa-github"></i> Github</a>
 <a href="http://stackoverflow.com/users/118908/diederikh" class="author-social" target="_blank"><i class="fa fa-fw fa-stack-overflow"></i> Stackoverflow</a>
@@ -134,11 +150,12 @@
   <article class="post">
     <div class="headline-wrap">
       
-        <h1><a href="http://localhost:4000/constants-in-swift/" rel="bookmark" title="Constants in Swift">Constants in Swift</a></h1>
+        <h1><a href="http://localhost:4000/constants-in-swift/" rel="bookmark" title="Constants in Swift Hello">Constants in Swift Hello</a></h1>
       
     </div><!--/ .headline-wrap -->
     <div class="article-wrap">
-      <p>With Objective-C, a common way to define constants you use in your classes – reuse identifiers, storyboard seque identifier, etc. is to do something like this:</p>
+      
+<p>With Objective-C, a common way to define constants you use in your classes – reuse identifiers, storyboard seque identifier, etc. is to do something like this:</p>
 
 <div class="language-objective_c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@import</span> <span class="s">"ABCThingsTableViewController.h"</span>
 
@@ -163,18 +180,18 @@
 <span class="c1">// Layout constants</span>
 <span class="kd">static</span> <span class="k">let</span> <span class="nv">headerViewTopMargin</span> <span class="o">=</span> <span class="mf">12.0</span><span class="p">;</span>
 
-<span class="kd">class</span> <span class="nf">ABCThingsTableViewController</span> <span class="p">{</span>
+<span class="kd">class</span> <span class="kt">ABCThingsTableViewController</span> <span class="p">{</span>
 	<span class="o">...</span>
 </code></pre></div></div>
 
 <p>In Swift we don’t need prefixes as Swift has namespaces; the global variables are defined within the scope of the module only – by default the application module. 
 Swift also supports something called <em>type properties</em>; properties that are defined within the type’s definiton and are scoped to the type, not the instance. There is a different syntax for <em>structs</em> and <em>classes</em>:</p>
 
-<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">struct</span> <span class="nf">SomeStruct</span> <span class="p">{</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">struct</span> <span class="kt">SomeStruct</span> <span class="p">{</span>
 	<span class="kd">static</span> <span class="k">let</span> <span class="nv">topBorderHeight</span><span class="p">:</span><span class="kt">CGFloat</span> <span class="o">=</span> <span class="mf">44.0</span>
 	<span class="o">...</span>
 
-<span class="kd">class</span> <span class="nf">SomeClass</span> <span class="p">{</span>
+<span class="kd">class</span> <span class="kt">SomeClass</span> <span class="p">{</span>
 	<span class="kd">class</span> <span class="k">let</span> <span class="nv">topBorderHeight</span><span class="p">:</span><span class="kt">CGFloat</span> <span class="o">=</span> <span class="mf">44.0</span>
 	<span class="o">...</span>
 </code></pre></div></div>
@@ -183,8 +200,8 @@ Swift also supports something called <em>type properties</em>; properties that a
 
 <p>There is an easy workaround for this:</p>
 
-<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nf">SomeClass</span> <span class="p">{</span>
-	<span class="kd">struct</span> <span class="nf">SomeStruct</span> <span class="p">{</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">SomeClass</span> <span class="p">{</span>
+	<span class="kd">struct</span> <span class="kt">SomeStruct</span> <span class="p">{</span>
 		<span class="kd">static</span> <span class="k">var</span> <span class="nv">someTypeProperty</span>
 	<span class="p">}</span>
 	<span class="o">...</span>
@@ -192,13 +209,13 @@ Swift also supports something called <em>type properties</em>; properties that a
 
 <p>We can even use this workaround to our advantage to make the constants structure more clear:</p>
 
-<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nf">ABCThingsTableViewController</span> <span class="p">{</span>
-	<span class="kd">struct</span> <span class="nf">Storyboard</span> <span class="p">{</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">ABCThingsTableViewController</span> <span class="p">{</span>
+	<span class="kd">struct</span> <span class="kt">Storyboard</span> <span class="p">{</span>
 		<span class="kd">static</span> <span class="k">let</span> <span class="nv">myTableCellIdentifier</span> <span class="o">=</span> <span class="s">"MyTableViewIdentifier"</span>
 		<span class="kd">static</span> <span class="k">let</span> <span class="nv">detailSegueIdentifier</span> <span class="o">=</span> <span class="s">"DetailViewController"</span>
 	<span class="p">}</span>
 	
-	<span class="kd">struct</span> <span class="nf">Layout</span> <span class="p">{</span>
+	<span class="kd">struct</span> <span class="kt">Layout</span> <span class="p">{</span>
 		<span class="kd">static</span> <span class="k">let</span> <span class="nv">topBorderHeight</span><span class="p">:</span><span class="kt">CGFloat</span> <span class="o">=</span> <span class="mf">44.0</span>
 	<span class="p">}</span>
 	<span class="o">...</span>
@@ -206,7 +223,7 @@ Swift also supports something called <em>type properties</em>; properties that a
 
 <p>You can use the constants in the following way:</p>
 
-<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">func</span> <span class="nf">collectionView</span><span class="p">(</span><span class="nv">collectionView</span><span class="p">:</span> <span class="kt">UICollectionView</span><span class="p">,</span> <span class="n">cellForItemAtIndexPath</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">NSIndexPath</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nf">UICollectionViewCell</span> <span class="p">{</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">func</span> <span class="nf">collectionView</span><span class="p">(</span><span class="nv">collectionView</span><span class="p">:</span> <span class="kt">UICollectionView</span><span class="p">,</span> <span class="n">cellForItemAtIndexPath</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">NSIndexPath</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UICollectionViewCell</span> <span class="p">{</span>
 	<span class="k">var</span> <span class="nv">cell</span> <span class="o">=</span> <span class="n">collectionView</span><span class="o">.</span><span class="nf">dequeueReusableCellWithReuseIdentifier</span><span class="p">(</span><span class="kt">Storyboard</span><span class="o">.</span><span class="n">myTableCellIdentifier</span><span class="p">,</span> <span class="nv">forIndexPath</span><span class="p">:</span> <span class="n">indexPath</span><span class="p">)</span> 
 	<span class="o">...</span>
 </code></pre></div></div>
@@ -223,7 +240,7 @@ Swift also supports something called <em>type properties</em>; properties that a
 
 <p>So this is now valid:</p>
 
-<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nf">SomeClass</span> <span class="p">{</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">SomeClass</span> <span class="p">{</span>
 	<span class="kd">static</span> <span class="k">let</span> <span class="nv">topBorderHeight</span><span class="p">:</span><span class="kt">CGFloat</span> <span class="o">=</span> <span class="mf">44.0</span>
 	<span class="o">...</span>
 </code></pre></div></div>
@@ -242,12 +259,12 @@ static variables as I think it will improve readability of your code.</p>
 <h3>Diederik Hoogenboom</h3>
 <p>Mac/iOS Developer at Obvious Matter</p>
 
-<a href="http://twitter.com/diederikh" class="author-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i> Twitter</a>
+
 <a href="http://obviousmatter.com" class="author-social" target="_blank"><i class="fa fa-fw fa-globe"></i> Web</a>
 
 
 <a href="http://linkedin.com/in/diederikhoogenboom" class="author-social" target="_blank"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a>
-<a href="http://instagram.com/diederik" class="author-social" target="_blank"><i class="fa fa-fw fa-instagram"></i> Instagram</a>
+
 
 <a href="http://github.com/diederikh" class="author-social" target="_blank"><i class="fa fa-fw fa-github"></i> Github</a>
 <a href="http://stackoverflow.com/users/118908/diederikh" class="author-social" target="_blank"><i class="fa fa-fw fa-stack-overflow"></i> Stackoverflow</a>
@@ -262,7 +279,7 @@ static variables as I think it will improve readability of your code.</p>
 
 
         </div>
-        <p class="byline"><strong>Constants in Swift</strong> was published on <time datetime="2015-02-03T18:10:00+01:00">February 03, 2015</time>.</p>
+        <p class="byline"><strong>Constants in Swift Hello</strong> was published on <time datetime="2015-02-03T00:00:00+01:00">February 03, 2015</time>.</p>
       </footer>
     </div><!-- /.article-wrap -->
   
@@ -274,13 +291,17 @@ static variables as I think it will improve readability of your code.</p>
   <h4>You might also enjoy <small class="pull-right">(<a href="http://localhost:4000/posts/">View all posts</a>)</small></h4>
     <ul>
     
+      <li><a href="http://localhost:4000/example-of-objc-dynamics-in-swift/" title="Example of converting Objective-C dynamics to Swift">Example of converting Objective-C dynamics to Swift</a></li>
+    
+      <li><a href="http://localhost:4000/volatile-forestall/" title="Volatile Forestall">Volatile Forestall</a></li>
+    
     </ul>
     <hr />
   </div><!-- /.related-articles -->
   <footer>
     
 
-<span>&copy; 2018 Diederik Hoogenboom</span>
+<span>&copy; 2019 Diederik Hoogenboom</span>
 
   </footer>
 </div><!-- /.footer-wrap -->

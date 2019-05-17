@@ -1,11 +1,4 @@
----
-layout: post
-title: "Constants in Swift"
-date: 2015-02-03 18:10
-comments: false
-published: true
-tags: swift
----
+# Constants in Swift Hello
 
 With Objective-C, a common way to define constants you use in your classes -- reuse identifiers, storyboard seque identifier, etc. is to do something like this:
 
