@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="162px" height="36px" viewBox="0 0 162 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="193px" height="42px" viewBox="0 0 193 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
-    <title>Cocaomon</title>
+    <title>Cocoamon</title>
     <desc>Created with Sketch.</desc>
     <defs>
-        <text id="text-1" font-family="SignPainter-HouseScript, SignPainter" font-size="50" font-style="condensed" font-weight="normal" fill="#F70505">
-            <tspan x="0" y="32">Cocaomon</tspan>
+        <text id="text-1" font-family="SignPainter-HouseScriptSemibold, SignPainter" font-size="60" font-style="condensed" font-weight="500" fill="#EE4E3A">
+            <tspan x="1" y="38">Cocoamon</tspan>
         </text>
-        <filter x="-1.2%" y="-2.2%" width="103.1%" height="108.9%" filterUnits="objectBoundingBox" id="filter-2">
-            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+        <filter x="-1.6%" y="-1.9%" width="103.7%" height="107.4%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="-1" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
             <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
             <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.3 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
         </filter>
     </defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" fill-opacity="1">
-        <g id="Cocaomon" fill="#F70505">
+        <g id="Cocoamon" fill="#EE4E3A">
             <use filter="url(#filter-2)" xlink:href="#text-1"></use>
             <use xlink:href="#text-1"></use>
         </g>
