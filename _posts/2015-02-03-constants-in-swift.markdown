@@ -1,6 +1,13 @@
-# Constants in Swift Hello
+---
+layout: post
+title: "Constants in Swift"
+date: 2015-02-03 18:10
+comments: false
+published: true
+tags: swift
+---
 
-With Objective-C, a common way to define constants you use in your classes -- reuse identifiers, storyboard seque identifier, etc. is to do something like this:
+With Objective-C, a common way to define constants you use in your classes -- reuse identifiers, storyboard segue identifier, etc. is to do something like this:
 
 ``` objective_c
 @import "ABCThingsTableViewController.h"
@@ -32,7 +39,7 @@ class ABCThingsTableViewController {
 ```
 
 In Swift we don't need prefixes as Swift has namespaces; the global variables are defined within the scope of the module only -- by default the application module. 
-Swift also supports something called _type properties_; properties that are defined within the type's definiton and are scoped to the type, not the instance. There is a different syntax for _structs_ and _classes_:
+Swift also supports something called _type properties_; properties that are defined within the type's definition and are scoped to the type, not the instance. There is a different syntax for _structs_ and _classes_:
 
 ``` swift 
 struct SomeStruct {
@@ -78,14 +85,14 @@ func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath ind
 	var cell = collectionView.dequeueReusableCellWithReuseIdentifier(Storyboard.myTableCellIdentifier, forIndexPath: indexPath) 
 	...
 ```
-	
-	
+
+
 ``` swift 
 // Access from another class
 let offset = ABCThingsTableViewController.Layout.topBorderHeight
 ```
 
-All this results in a nice self-documenting way to define constants without worying about namespace issues.
+All this results in a nice self-documenting way to define constants without worrying about namespace issues.
 
 
 ## Edit

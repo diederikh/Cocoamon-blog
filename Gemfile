@@ -1,10 +1,16 @@
-source 'https://rubygems.org'
-gem 'jekyll'
-gem "jekyll-sitemap"
-gem 'rouge'
-gem 'kramdown'
-gem 'octopress', '~> 3.0.0.rc.12'
-gem 'jekyll-optional-front-matter'
-gem 'jekyll-default-layout'
-gem 'jekyll-titles-from-headings'
-gem 'jekyll-seo-tag'
+source "https://rubygems.org"
+
+# This will help ensure the proper Jekyll version is running.
+gem "jekyll", "3.8.3"
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+group :jekyll_plugins do
+  gem 'jekyll-paginate'
+  gem 'jekyll-tagsgenerator'
+  gem 'jekyll-seo-tag'
+  gem 'jekyll-sitemap'
+  gem 'rouge'
+end
+

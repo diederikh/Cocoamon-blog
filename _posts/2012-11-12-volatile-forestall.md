@@ -1,4 +1,11 @@
-# Volatile Forestall
+---
+layout: post
+title: "Volatile Forestall"
+date: 2012-11-12 19:38
+comments: false
+published: true
+tags: [Apple, Business]
+---
 
 Among the first articles for Marco Arment's new venture, [The Magazine](http://the-magazine.org), was an article by Michael Lopp called ["Stables and Volatiles"](http://www.randsinrepose.com/archives/2012/11/14/stables_and_volatiles.html).
 Michael Lopp talks about corporate culture where two different types of people often clash. The "Stables"; the risk-avoiding, rule making kind, struggle to keep everything the same and predictable, where the "Volatiles" are the restless, entrepreneurial bunch who want constant change and take risks to make this happen. 

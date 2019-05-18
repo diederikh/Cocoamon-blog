@@ -8,18 +8,20 @@
     
     
         <!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Home | Cocoamon</title>
+<title>Example of converting Objective-C dynamics to Swift | Cocoamon</title>
 <meta name="generator" content="Jekyll v3.8.3" />
-<meta property="og:title" content="Home" />
+<meta property="og:title" content="Example of converting Objective-C dynamics to Swift" />
 <meta name="author" content="Diederik Hoogenboom" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="A blog about Swift, iOS, MacOS and Apple in general" />
-<meta property="og:description" content="A blog about Swift, iOS, MacOS and Apple in general" />
-<link rel="canonical" href="http://localhost:4000/" />
-<meta property="og:url" content="http://localhost:4000/" />
+<meta name="description" content="Some time ago I had to convert an Objective-C category I use to load UIView’s from XIB’s." />
+<meta property="og:description" content="Some time ago I had to convert an Objective-C category I use to load UIView’s from XIB’s." />
+<link rel="canonical" href="http://localhost:4000/example-of-objc-dynamics-in-swift" />
+<meta property="og:url" content="http://localhost:4000/example-of-objc-dynamics-in-swift" />
 <meta property="og:site_name" content="Cocoamon" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-03-03T09:30:00+01:00" />
 <script type="application/ld+json">
-{"name":"Cocoamon","description":"A blog about Swift, iOS, MacOS and Apple in general","author":{"@type":"Person","name":"Diederik Hoogenboom"},"@type":"WebSite","url":"http://localhost:4000/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/cocoamon.svg"},"name":"Diederik Hoogenboom"},"headline":"Home","@context":"https://schema.org"}</script>
+{"description":"Some time ago I had to convert an Objective-C category I use to load UIView’s from XIB’s.","author":{"@type":"Person","name":"Diederik Hoogenboom"},"@type":"BlogPosting","url":"http://localhost:4000/example-of-objc-dynamics-in-swift","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/cocoamon.svg"},"name":"Diederik Hoogenboom"},"headline":"Example of converting Objective-C dynamics to Swift","dateModified":"2015-03-03T09:30:00+01:00","datePublished":"2015-03-03T09:30:00+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/example-of-objc-dynamics-in-swift"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     
@@ -37,16 +39,11 @@
 
 
 
-<body class="layout-default">
+<body class="layout-post">
     <div id="page" class="site">
 
         
-
-        <div class="hero-wrap">
-            
-            <div class="hero-wrap-bg" style="background-image: url(/assets/images/bc_4.jpg)"></div>
-            
-            <header id="masthead" class="site-header outer">
+        <header id="masthead" class="site-header outer">
     <div class="site-header-inside">
         <div class="site-branding">
             
@@ -62,71 +59,21 @@
         </nav><!-- .site-navigation -->
     </div><!-- .site-header-inside -->
 </header><!-- .site-header -->
-            <section class="hero outer fadeInDown delay_075s">
-                <div class="inner">
-                    
-    <p class="hero-avatar"><img src="/assets/images/authorimage.jpg" alt="Diederik Hoogenboom's Picture" class="avatar" /></p>
-    <h2 class="hero-title"></h2>
-    <p class="hero-description">A blog about Swift, iOS, MacOS and Apple in general</p>
-
-<p class="social-links">
-    
-    <a href="https://mastodon.social/@diederik" target="_blank">
-        <span class="fa-twitter fa" aria-hidden="true"></span>
-        <span class="screen-reader-text">Mastodon</span>
-    </a>
-    
-    
-    
-    <a href="https://www.stackoverflow.com/users/118908/diederikh" target="_blank">
-        <span class="fab fa-stack-overflow" aria-hidden="true"></span>
-        <span class="screen-reader-text">StackOverflow</span>
-    </a>
-    
-    
-    <a href="https://github.com/diederikh" target="_blank">
-        <span class="fa-github fa" aria-hidden="true"></span>
-        <span class="screen-reader-text">GitHub</span>
-    </a>
-    
-    
-    
-    
-    
-    
-    <a href="https://www.linkedin.com/in/diederikhoogenboom" target="_blank">
-        <span class="fa-linkedin fa" aria-hidden="true"></span>
-        <span class="screen-reader-text">Linkedin</span>
-    </a>
-    
-    
-</p>
-
-                </div><!-- .inner -->
-            </section><!-- .hero -->
-        </div><!-- .hero-wrap -->
-
         
 
-        
-<!-- Featured-->
-<div class="featured-posts outer">
-    
-        
-            <article class=" post-featured inner">
-    <header class="post-header">
-        <div class="post-meta">
-            <span class="featured-badge">Featured</span> &sol; 
-            <time class="published" datetime="2015-03-03">March 3, 2015</time>
-        </div><!-- .post-meta -->
-        <h2 class="post-title">
-            <a href="/example-of-objc-dynamics-in-swift" rel="bookmark">Example of converting Objective-C dynamics to Swift</a>
-        </h2>
-    </header><!-- .post-header -->
-    
-    <div class="post-content">
-        
-            <p><p>Some time ago I had to convert an Objective-C category I use to load UIView’s from XIB’s.</p>
+        <div id="content" class="site-content fadeInDown delay_075s">
+    <main id="main" class="site-main outer">
+        <article class="post-full inner">
+            <header class="post-header">
+                <div class="post-meta">
+                    <time class="post-date" datetime="2015-03-03">March 3,
+                        2015</time>
+                </div><!-- .post-meta -->
+                <h1 class="posttitle">Example of converting Objective-C dynamics to Swift</h1>
+            </header><!-- .post-header -->
+            
+            <div class="post-content">
+                <p>Some time ago I had to convert an Objective-C category I use to load UIView’s from XIB’s.</p>
 
 <p>Here is the category:</p>
 
@@ -229,117 +176,62 @@ The XIB is called CustomView.xib. We need to strip the module name from the stri
 <span class="p">}</span>
 </code></pre></div></div>
 <p>The type annotation is needed to let the compiler determine the type of T.</p>
-</p>
-        
-    </div><!-- .post-content -->
-</article><!-- .post -->
-        
-    
-        
-    
-        
-    
-</div>
 
-<!-- Posts Index -->
-<div class="outer">
-    
-    <div class="post-feed-title inner">Latest Articles</div>
-    
-    <div class="post-feed inner-wide">
+            </div>
+            <footer class="post-footer">
+                
+                <p class="post-tags">
+                     
+                    <a href='tag/swift/'>swift</a>
+                    
+                    
+                </p>
+                
+                <div class="post-share">
+                    <span class="post-share-title">Share:</span>
+                    <a target="_blank" href="https://twitter.com/share?text=Example+of+converting+Objective-C+dynamics+to+Swift&amp;url=https://cocoamon.com/example-of-objc-dynamics-in-swift">Twitter</a>
+                    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://cocoamon.com/example-of-objc-dynamics-in-swift">Facebook</a>
+                </div><!-- .share-post -->
+            </footer>
+            <div class="author-box">
+                <div class="author-avatar"><img src="/assets/images/authorimage.jpg" alt="Diederik Hoogenboom's Picture"
+                        class="avatar"></div>
+                <div class="author-details">
+                    <h2 class="author-title">About Diederik Hoogenboom</h2>
+                    <p class="author-description">Diederik is a Mac and iOS Developer from The Netherlands. You can find more stuff he's worked on at <a href='https://www.obviousmatter.com'>obviousmatter.com</html></p>
+                </div>
+            </div>
+            
+
+        </article>
         
+        <section class="read-next inner">
+            <h2 class="read-next-title">Read Next</h2>
+            
             <article class="post">
-    <header class="post-header">
-        <div class="post-meta">
-            <time class="published" datetime="2015-03-03">March 3, 2015</time>
-        </div><!-- .post-meta -->
-        <h2 class="post-title">
-            <a href="http://localhost:4000/example-of-objc-dynamics-in-swift" rel="bookmark">Example of converting Objective-C dynamics to Swift</a>
-        </h2>
-    </header><!-- .post-header -->
-    
-    
-    <div class="post-content">
-        <p>Some time ago I had to convert an Objective-C category I use to load UIView’s from XIB’s.
-
- </p>
-        <p class="post-tags">
+                <header class="post-header">
+                    <div class="post-meta">
+                        <time class="published" datetime="February 3, 2015">February 3, 2015</time>
+                    </div>
+                    <h3 class="post-title"><a href="/constants-in-swift">Constants in Swift</a></h3>
+                    <p class="post-tags">
+                        
+                        
+                        
+                        <a href='/tag/swift/'>Swift</a>
+                        
+                        
+                        
+                    </p>
+                </header>
+                
+                
+            </article>
             
             
-            
-            <a href='/tag/swift/'>swift</a>
-            
-            
-            
-        </p>
-    </div><!-- .post-content -->
-</article><!-- .post -->
-        
-            <article class="post">
-    <header class="post-header">
-        <div class="post-meta">
-            <time class="published" datetime="2015-02-03">February 3, 2015</time>
-        </div><!-- .post-meta -->
-        <h2 class="post-title">
-            <a href="http://localhost:4000/constants-in-swift" rel="bookmark">Constants in Swift</a>
-        </h2>
-    </header><!-- .post-header -->
-    
-    
-    <div class="post-content">
-        <p>With Objective-C, a common way to define constants you use in your classes – reuse identifiers, storyboard segue identifier, etc. is to do something like this:
-
- </p>
-        <p class="post-tags">
-            
-            
-            
-            <a href='/tag/swift/'>swift</a>
-            
-            
-            
-        </p>
-    </div><!-- .post-content -->
-</article><!-- .post -->
-        
-            <article class="post">
-    <header class="post-header">
-        <div class="post-meta">
-            <time class="published" datetime="2012-11-12">November 12, 2012</time>
-        </div><!-- .post-meta -->
-        <h2 class="post-title">
-            <a href="http://localhost:4000/volatile-forestall" rel="bookmark">Volatile Forestall</a>
-        </h2>
-    </header><!-- .post-header -->
-    
-    
-    <div class="post-content">
-        <p>Among the first articles for Marco Arment’s new venture, The Magazine, was an article by Michael Lopp called “Stables and Volatiles”. Michael Lopp talks about corporate culture where two different types of people often clash. The “Stables”; the risk-avoiding, rule... </p>
-        <p class="post-tags">
-            
-            
-            
-            <a href='/tag/apple/'>Apple</a>
-            
-            
-            
-            <a href='/tag/business/'>Business</a>
-            
-            
-            
-        </p>
-    </div><!-- .post-content -->
-</article><!-- .post -->
-        
-    </div>
-</div>
-<!-- Pagination-->
-
-
-
-
-
-
+        </section><!-- .read-next -->
+    </main><!-- .site-main -->
+</div><!-- .site-content -->
 
         
 
