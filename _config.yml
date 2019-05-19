@@ -1,6 +1,6 @@
 # Site setings
 name: 'Cocoamon'
-description: 'A blog about Swift, iOS, MacOS and Apple in general'
+description: 'A blog about Swift, iOS, MacOS and Apple in general by Diederik Hoogenboom'
 meta_description: 'A blog about Swift, iOS, MacOS and Apple in general'
 logo: 'assets/images/cocoamon.svg'
 favicon: 'assets/images/favicon.ico'
@@ -16,7 +16,7 @@ author:
   name: 'Diederik Hoogenboom'
   image: 'authorimage.jpg'
   greetings: 
-  description: "A blog about Swift, iOS, MacOS and Apple in general"
+  description: "<strong>A blog about Swift, iOS, MacOS and Apple</strong> </br> by Diederik Hoogenboom"
   bio: "Diederik is a Mac and iOS Developer from The Netherlands. You can find more stuff he's worked on at <a href='https://www.obviousmatter.com'>obviousmatter.com</html>"
 
 # Contact form setings
