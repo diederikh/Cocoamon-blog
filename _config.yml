@@ -1,58 +1,72 @@
-# Site wide configuration
+# Site setings
+name: 'Cocoamon'
+description: 'A blog about Swift, iOS, MacOS and Apple in general'
+meta_description: 'A blog about Swift, iOS, MacOS and Apple in general'
+logo: 'assets/images/cocoamon.svg'
+favicon: 'assets/images/favicon.ico'
+baseurl: 
+production_url: https://cocoamon.com/
+disqus:
+mailchimp_url:
+cover_image: 'bc_4.jpg'
+# Add your GA Tracking Id
+ga_analytics: 'UA-59324716-1'
 
-title:            Cocoamon
-locale:           en_US
-url:              
+author:
+  name: 'Diederik Hoogenboom'
+  image: 'authorimage.jpg'
+  greetings: 
+  description: "A blog about Swift, iOS, MacOS and Apple in general"
+  bio: "Diederik is a Mac and iOS Developer from The Netherlands. You can find more stuff he's worked on at <a href='https://www.obviousmatter.com'>obviousmatter.com</html>"
+
+# Contact form setings
+email: support@obviousmatter.com
+contact_page_description: ""
+thankyou_page_description: "Your message has been successfully sent. We will contact you very soon!"
+
+# Social links
+mastodon: '@diederik'
+github: 'diederikh'
+stackoverflow: 'users/118908/diederikh'
+linkedin: 'diederikhoogenboom'
 
 
-# Jekyll configuration
-permalink:   /:categories/:title/
-markdown:    kramdown
-highlighter: rouge
-sass:
-  sass_dir: _sass
-  style: compressed
-plugins:
+# Navigation
+# navigation:
+#   - text: About
+#     url: /about/
+#   - text: Style Guide
+#     url: /style-guide/
+#   - text: Contact Me
+#     url: /contact/
+
+# Required Plugins
+plugins_dir:
+  - jekyll-paginate
+  - jekyll-tagsgenerator
+  - jekyll-seo-tag
   - jekyll-sitemap
 
+
+# Pagination
+paginate: 5
+paginate_path: /page:num/
+
+# Permalinks
+permalink: /:title
+
+# Other
+markdown: kramdown
+highlighter: rouge
 kramdown:
   auto_ids: true
   syntax_highlighter: rouge
   input: GFM
 
-#  smart_quotes:   lsquo,rsquo,ldquo,rdquo
-  
-# Site owner
-owner:
-  name: Diederik Hoogenboom
-  avatar: bio-photo.jpg
-  bio: "Mac/iOS Developer at Obvious Matter"
-  email: 
-  web: "http://obviousmatter.com"
-  disqus-shortname: 
-  twitter: diederikh
-  facebook:
-  google:
-    plus:
-    analytics: UA-59324716-1
-    verify: 
-    ad-client: 
-    ad-slot: 
-  bing-verify: 
-  github: diederikh
-  stackoverflow: 118908/diederikh
-  linkedin: diederikhoogenboom
-  instagram: diederik
-  lastfm: #username
-  tumblr: #username
-  pinterest: #username
-  foursquare: #username
-  steam: #username
-  dribbble: #username
-  youtube: #username
-  soundcloud: #username
-  weibo: #username
-  flickr: #username
+# Sass
+sass:
+  sass_dir: _sass
+  style: compressed
 
 include: [".htaccess"]
-exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "Gemfile", "Gemfile.lock", "LICENSE", "README.md"]
+exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "Gemfile", "Gemfile.lock", "LICENSE", "README.md", "cocoamon.sketch"]

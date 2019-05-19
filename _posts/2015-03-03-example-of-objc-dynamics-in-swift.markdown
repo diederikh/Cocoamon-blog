@@ -5,14 +5,14 @@ date: 2015-03-03 09:30
 comments: false
 published: true
 tags: swift
+featured: true
 ---
 
 
 Some time ago I had to convert an Objective-C category I use to load UIView's from XIB's.
 
 Here is the category:
-
-``` objc
+```objc
 @implementation UIView (NIB)
 
 + (UIView *)loadInstanceFromNib
@@ -32,7 +32,7 @@ Here is the category:
 
 This category lets you load a custom view from a XIB file with the same name as the custom view's class. It does this by loading the XIB, looping through all the high-level objects in the XIB and return the first object with the same class as  the `loadInstanceFromNib` class method is called from.
 
-``` objc
+```objc
 CustomView *view = [CustomView loadInstanceFromNib];
 ```
 
@@ -43,7 +43,7 @@ The category will become an extension on UIView in Swift.
 With loading the XIB we encounter the first problem: `NSStringFromClass(self)` in Swift will return us the class name prefixed by the module. In most cases this is the application name (e.g. `MyApplication.CustomView`)
 The XIB is called CustomView.xib. We need to strip the module name from the string returned by `NSStringFromClass()`:
 
-``` swift
+```swift
 var className = NSStringFromClass(self)
 className = split(className, { $0 == "."})[1]	
 
@@ -76,7 +76,7 @@ We can use the _as?_ operator to test if the top level object is of our desired 
 
 Unfortunately, we cannot use _self_ as the return type. Swift wants to known the type at compile time. Objective-C didn't care about that. In Objective-C the `loadInstanceFromNib` method returns an `UIView *` in Swift we want to return the right type. 
 
-We want this extension to be useable for any `UIView` subclass. We can use Swift [Generics](https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Generics.html#//apple_ref/doc/uid/TP40014097-CH26-ID179) to accomplish that:
+We want this extension to be useable for any `UIView` subclass. We can use Swift [Generics][1] to accomplish that:
 
 
 ``` swift
@@ -120,3 +120,5 @@ if let view:CustomView = UIView.loadInstanceFromNib() {
 }
 ```
 The type annotation is needed to let the compiler determine the type of T. 
+
+[1]:	https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Generics.html#//apple_ref/doc/uid/TP40014097-CH26-ID179

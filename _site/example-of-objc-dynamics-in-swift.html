@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    
+        <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Example of converting Objective-C dynamics to Swift | Cocoamon</title>
+<meta name="generator" content="Jekyll v3.8.3" />
+<meta property="og:title" content="Example of converting Objective-C dynamics to Swift" />
+<meta name="author" content="Diederik Hoogenboom" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Some time ago I had to convert an Objective-C category I use to load UIView’s from XIB’s." />
+<meta property="og:description" content="Some time ago I had to convert an Objective-C category I use to load UIView’s from XIB’s." />
+<link rel="canonical" href="http://localhost:4000/example-of-objc-dynamics-in-swift" />
+<meta property="og:url" content="http://localhost:4000/example-of-objc-dynamics-in-swift" />
+<meta property="og:site_name" content="Cocoamon" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-03-03T09:30:00+01:00" />
+<script type="application/ld+json">
+{"description":"Some time ago I had to convert an Objective-C category I use to load UIView’s from XIB’s.","author":{"@type":"Person","name":"Diederik Hoogenboom"},"@type":"BlogPosting","url":"http://localhost:4000/example-of-objc-dynamics-in-swift","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/cocoamon.svg"},"name":"Diederik Hoogenboom"},"headline":"Example of converting Objective-C dynamics to Swift","dateModified":"2015-03-03T09:30:00+01:00","datePublished":"2015-03-03T09:30:00+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/example-of-objc-dynamics-in-swift"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+
+    <!-- Site Favicon -->
+    <link rel="shortcut icon" href="http://localhost:4000/assets/images/favicon.ico" type="image/png" />
+
+    <!-- Font Embed Code -->
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i" rel="stylesheet" />
+
+    <!-- CSS Styles -->
+    <link href="/assets/css/style.css" rel="stylesheet">
+
+</head>
+
+
+
+<body class="layout-post">
+    <div id="page" class="site">
+
+        
+        <header id="masthead" class="site-header outer">
+    <div class="site-header-inside">
+        <div class="site-branding">
+            
+                <p class="site-logo"><a href="/" rel="home"><img src="/assets/images/cocoamon.svg" alt="Cocoamon" /></a></p>
+                <h1 class="site-title screen-reader-text"><a href="" rel="home"></a></h1>
+            
+        </div><!-- .site-branding -->
+        <nav id="main-navigation" class="site-navigation" aria-label="Primary Navigation">
+            <ul class="menu">
+            
+            </ul>
+            <button id="sidebar-show" class="sidebar-toggle"><span class="screen-reader-text">Open Sidebar</span><span class="icon-more" aria-hidden="true"></span></button>
+        </nav><!-- .site-navigation -->
+    </div><!-- .site-header-inside -->
+</header><!-- .site-header -->
+        
+
+        <div id="content" class="site-content fadeInDown delay_075s">
+    <main id="main" class="site-main outer">
+        <article class="post-full inner">
+            <header class="post-header">
+                <div class="post-meta">
+                    <time class="post-date" datetime="2015-03-03">March 3,
+                        2015</time>
+                </div><!-- .post-meta -->
+                <h1 class="posttitle">Example of converting Objective-C dynamics to Swift</h1>
+            </header><!-- .post-header -->
+            
+            <div class="post-content">
+                <p>Some time ago I had to convert an Objective-C category I use to load UIView’s from XIB’s.</p>
+
+<p>Here is the category:</p>
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@implementation</span> <span class="nc">UIView</span> <span class="p">(</span><span class="nl">NIB</span><span class="p">)</span>
+
+<span class="k">+</span> <span class="p">(</span><span class="n">UIView</span> <span class="o">*</span><span class="p">)</span><span class="n">loadInstanceFromNib</span>
+<span class="p">{</span> 
+    <span class="n">NSArray</span><span class="o">*</span> <span class="n">topLevelObjects</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSBundle</span> <span class="nf">mainBundle</span><span class="p">]</span> <span class="nf">loadNibNamed</span><span class="p">:</span> <span class="n">NSStringFromClass</span><span class="p">([</span><span class="n">self</span> <span class="nf">class</span><span class="p">])</span> <span class="nf">owner</span><span class="p">:</span> <span class="nb">nil</span> <span class="n">options</span><span class="o">:</span> <span class="nb">nil</span><span class="p">];</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">id</span> <span class="n">object</span> <span class="k">in</span> <span class="n">topLevelObjects</span><span class="p">)</span>
+    <span class="p">{</span> 
+        <span class="k">if</span> <span class="p">([</span><span class="n">object</span> <span class="nf">isKindOfClass</span><span class="p">:[</span><span class="n">self</span> <span class="nf">class</span><span class="p">]])</span>
+        <span class="p">{</span> 
+            <span class="k">return</span> <span class="n">object</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span> 
+        <span class="p">}</span> 
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span> 
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This category lets you load a custom view from a XIB file with the same name as the custom view’s class. It does this by loading the XIB, looping through all the high-level objects in the XIB and return the first object with the same class as  the <code class="highlighter-rouge">loadInstanceFromNib</code> class method is called from.</p>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">CustomView</span> <span class="o">*</span><span class="n">view</span> <span class="o">=</span> <span class="p">[</span><span class="n">CustomView</span> <span class="nf">loadInstanceFromNib</span><span class="p">];</span>
+</code></pre></div></div>
+
+<p>How would we convert this category to Swift? Easy.</p>
+
+<p>The category will become an extension on UIView in Swift.</p>
+
+<p>With loading the XIB we encounter the first problem: <code class="highlighter-rouge">NSStringFromClass(self)</code> in Swift will return us the class name prefixed by the module. In most cases this is the application name (e.g. <code class="highlighter-rouge">MyApplication.CustomView</code>)
+The XIB is called CustomView.xib. We need to strip the module name from the string returned by <code class="highlighter-rouge">NSStringFromClass()</code>:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="nv">className</span> <span class="o">=</span> <span class="kt">NSStringFromClass</span><span class="p">(</span><span class="k">self</span><span class="p">)</span>
+<span class="n">className</span> <span class="o">=</span> <span class="nf">split</span><span class="p">(</span><span class="n">className</span><span class="p">,</span> <span class="p">{</span> <span class="nv">$0</span> <span class="o">==</span> <span class="s">"."</span><span class="p">})[</span><span class="mi">1</span><span class="p">]</span>	
+
+</code></pre></div></div>
+
+<p>Looping through the top level objects is the same in Swift.</p>
+
+<p>Swift has special syntax to test if an object is of a certain type.</p>
+
+<p>The <em>is</em> operator lets you test if an object is of a certain class. <code class="highlighter-rouge">"Hello" is String</code> renders as <code class="highlighter-rouge">true</code></p>
+
+<p>The <em>as?</em> operator used in an <em>if let</em> construct will type cast the object to a type if the type matches.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// object is of type Any</span>
+<span class="k">if</span> <span class="k">let</span> <span class="nv">text</span> <span class="o">=</span> <span class="n">object</span> <span class="k">as?</span> <span class="kt">String</span> <span class="p">{</span>
+	<span class="c1">// we only get here if object is a String. text is of type String</span>
+<span class="p">}</span> 
+</code></pre></div></div>
+
+<p>We can use the <em>as?</em> operator to test if the top level object is of our desired type.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">for</span> <span class="n">object</span> <span class="k">in</span> <span class="n">topLevelObjects</span> <span class="p">{</span>
+ 	<span class="k">if</span> <span class="k">let</span> <span class="nv">view</span> <span class="o">=</span> <span class="n">object</span> <span class="k">as?</span> <span class="k">self</span> <span class="p">{</span>
+       	<span class="k">return</span> <span class="n">view</span>
+ 	<span class="p">}</span>
+ <span class="p">}</span>
+</code></pre></div></div>
+
+<p>Unfortunately, we cannot use <em>self</em> as the return type. Swift wants to known the type at compile time. Objective-C didn’t care about that. In Objective-C the <code class="highlighter-rouge">loadInstanceFromNib</code> method returns an <code class="highlighter-rouge">UIView *</code> in Swift we want to return the right type.</p>
+
+<p>We want this extension to be useable for any <code class="highlighter-rouge">UIView</code> subclass. We can use Swift <a href="https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Generics.html#//apple_ref/doc/uid/TP40014097-CH26-ID179">Generics</a> to accomplish that:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">UIView</span> <span class="p">{</span>
+    <span class="kd">class</span> <span class="kd">func</span> <span class="n">loadInstanceFromNib</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UIView</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">T</span><span class="p">?</span> <span class="p">{</span>
+        <span class="k">var</span> <span class="nv">className</span> <span class="o">=</span> <span class="kt">T</span><span class="o">.</span><span class="nf">description</span><span class="p">()</span>
+        <span class="n">className</span> <span class="o">=</span> <span class="nf">split</span><span class="p">(</span><span class="n">className</span><span class="p">,</span> <span class="p">{</span> <span class="nv">$0</span> <span class="o">==</span> <span class="s">"."</span><span class="p">})[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">let</span> <span class="nv">nib</span> <span class="o">=</span> <span class="kt">UINib</span><span class="p">(</span><span class="nv">nibName</span><span class="p">:</span><span class="n">className</span><span class="p">,</span> <span class="nv">bundle</span><span class="p">:</span><span class="kc">nil</span><span class="p">)</span>
+        <span class="k">let</span> <span class="nv">topLevelObjects</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="nf">instantiateWithOwner</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="nv">options</span><span class="p">:</span><span class="kc">nil</span><span class="p">)</span>
+        
+        <span class="k">for</span> <span class="n">object</span> <span class="k">in</span> <span class="n">topLevelObjects</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="k">let</span> <span class="nv">view</span> <span class="o">=</span> <span class="n">object</span> <span class="k">as?</span> <span class="kt">T</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="n">view</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="kc">nil</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Instead of looping through the top level objects with a for-loop, a more functional approach could be taken. Using a filter on the top level objects array will give us only the objects that match our criteria. This time we can use the <em>is</em> operator.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">UIView</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="kd">func</span> <span class="n">loadInstanceFromNib</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UIView</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">T</span><span class="p">?</span> <span class="p">{</span>
+        <span class="k">var</span> <span class="nv">className</span> <span class="o">=</span> <span class="kt">T</span><span class="o">.</span><span class="nf">description</span><span class="p">()</span>
+        <span class="n">className</span> <span class="o">=</span> <span class="nf">split</span><span class="p">(</span><span class="n">className</span><span class="p">,</span> <span class="p">{</span> <span class="nv">$0</span> <span class="o">==</span> <span class="s">"."</span><span class="p">})[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">let</span> <span class="nv">nib</span> <span class="o">=</span> <span class="kt">UINib</span><span class="p">(</span><span class="nv">nibName</span><span class="p">:</span><span class="n">className</span><span class="p">,</span> <span class="nv">bundle</span><span class="p">:</span><span class="kc">nil</span><span class="p">)</span>
+        <span class="k">let</span> <span class="nv">topLevelObjects</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="nf">instantiateWithOwner</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="nv">options</span><span class="p">:</span><span class="kc">nil</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">topLevelObjects</span><span class="o">.</span><span class="n">filter</span><span class="p">{</span> <span class="nv">$0</span> <span class="k">is</span> <span class="kt">T</span> <span class="p">}</span><span class="o">.</span><span class="n">first</span> <span class="k">as?</span> <span class="kt">T</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The extension can be used in the following way:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="k">let</span> <span class="nv">view</span><span class="p">:</span><span class="kt">CustomView</span> <span class="o">=</span> <span class="kt">UIView</span><span class="o">.</span><span class="nf">loadInstanceFromNib</span><span class="p">()</span> <span class="p">{</span>
+	<span class="c1">// Do something with the view</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>The type annotation is needed to let the compiler determine the type of T.</p>
+
+
+            </div>
+            <footer class="post-footer">
+                
+                <p class="post-tags">
+                     
+                    <a href='tag/swift/'>swift</a>
+                    
+                    
+                </p>
+                
+                <div class="post-share">
+                    <span class="post-share-title">Share:</span>
+                    <a target="_blank" href="https://twitter.com/share?text=Example+of+converting+Objective-C+dynamics+to+Swift&amp;url=https://cocoamon.com/example-of-objc-dynamics-in-swift">Twitter</a>
+                    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://cocoamon.com/example-of-objc-dynamics-in-swift">Facebook</a>
+                </div><!-- .share-post -->
+            </footer>
+            <div class="author-box">
+                <div class="author-avatar"><img src="/assets/images/authorimage.jpg" alt="Diederik Hoogenboom's Picture"
+                        class="avatar"></div>
+                <div class="author-details">
+                    <h2 class="author-title">About Diederik Hoogenboom</h2>
+                    <p class="author-description">Diederik is a Mac and iOS Developer from The Netherlands. You can find more stuff he's worked on at <a href='https://www.obviousmatter.com'>obviousmatter.com</html></p>
+                </div>
+            </div>
+            
+
+        </article>
+        
+        <section class="read-next inner">
+            <h2 class="read-next-title">Read Next</h2>
+            
+            <article class="post">
+                <header class="post-header">
+                    <div class="post-meta">
+                        <time class="published" datetime="February 3, 2015">February 3, 2015</time>
+                    </div>
+                    <h3 class="post-title"><a href="/constants-in-swift">Constants in Swift</a></h3>
+                    <p class="post-tags">
+                        
+                        
+                        
+                        <a href='/tag/swift/'>Swift</a>
+                        
+                        
+                        
+                    </p>
+                </header>
+                
+                
+            </article>
+            
+            
+        </section><!-- .read-next -->
+    </main><!-- .site-main -->
+</div><!-- .site-content -->
+
+        
+
+        
+
+        <footer id="colophon" class="site-footer outer">
+            <div class="site-footer-inside">
+                <p class="social-links">
+    
+    <a href="https://mastodon.social/@diederik" target="_blank">
+        <span class="fa-twitter fa" aria-hidden="true"></span>
+        <span class="screen-reader-text">Mastodon</span>
+    </a>
+    
+    
+    
+    <a href="https://www.stackoverflow.com/users/118908/diederikh" target="_blank">
+        <span class="fab fa-stack-overflow" aria-hidden="true"></span>
+        <span class="screen-reader-text">StackOverflow</span>
+    </a>
+    
+    
+    <a href="https://github.com/diederikh" target="_blank">
+        <span class="fa-github fa" aria-hidden="true"></span>
+        <span class="screen-reader-text">GitHub</span>
+    </a>
+    
+    
+    
+    
+    
+    
+    <a href="https://www.linkedin.com/in/diederikhoogenboom" target="_blank">
+        <span class="fa-linkedin fa" aria-hidden="true"></span>
+        <span class="screen-reader-text">Linkedin</span>
+    </a>
+    
+    
+</p>
+                <p class="site-info">
+                    <a href="#">Cocoamon</a> &copy; 2019 . Horace theme by
+                    <a target="_blank" href="https://justgoodthemes.com/">JustGoodThemes</a>. <br />
+                    Powered by <a target="_blank" href="https://jekyllrb.com/">Jekyll</a>.
+                </p>
+                <p class="back-to-top">
+                    <a id="top-button" class="top-button" href="#page">
+                        <span class="icon-arrow-up" aria-hidden="true"></span>
+                        <span class="screen-reader-text">Back to top</span>
+                    </a>
+                </p>
+            </div><!-- .site-footer-inside -->
+        </footer><!-- .site-footer -->
+    </div><!-- .site -->
+    <div id="site-overlay" class="site-overlay"></div>
+    <aside id="sidebar" class="sidebar">
+	<div class="sidebar-scrollable">
+		<div class="sidebar-inside">
+			<button id="sidebar-hide" class="sidebar-toggle"><span class="screen-reader-text">Close Sidebar</span><span
+				    aria-hidden="true" class="icon-close"></span></button>
+			<nav id="sidebar-navigation" class="widget site-navigation">
+				<h2 class="widget-title">Explore Site</h2>
+				<ul class="menu">
+					
+				</ul>
+			</nav>
+			
+<section class="widget widget-text">
+    <h2 class="widget-title">About Cocoamon</h2>
+    <p>A blog about Swift, iOS, MacOS and Apple in general</p>
+</section>
+
+
+<section class="widget widget-recent-posts">
+    <h2 class="widget-title">Recent Articles</h2>
+    <ul>
+        
+        <li>
+            <div class="post-header">
+                <div class="post-meta">
+                    <time class="published" datetime="??">March 3, 2015</time>
+                </div>
+                <div class="post-title">
+                    <a href="http://localhost:4000/example-of-objc-dynamics-in-swift">Example of converting Objective-C dynamics to Swift</a>
+                </div>
+            </div>
+            
+            
+        </li>
+        
+        <li>
+            <div class="post-header">
+                <div class="post-meta">
+                    <time class="published" datetime="??">February 3, 2015</time>
+                </div>
+                <div class="post-title">
+                    <a href="http://localhost:4000/constants-in-swift">Constants in Swift</a>
+                </div>
+            </div>
+            
+            
+        </li>
+        
+        <li>
+            <div class="post-header">
+                <div class="post-meta">
+                    <time class="published" datetime="??">November 12, 2012</time>
+                </div>
+                <div class="post-title">
+                    <a href="http://localhost:4000/volatile-forestall">Volatile Forestall</a>
+                </div>
+            </div>
+            
+            
+        </li>
+        
+    </ul>
+</section>
+
+<!-- Create a sorted array of tags -->
+ 
+<section class="widget widget-tagcloud">
+    <h2 class="widget-title">Tags</h2>
+    <div class="tagcloud">
+        
+        <a href='https://cocoamon.com/tag/apple/'>Apple</a>
+        
+        <a href='https://cocoamon.com/tag/business/'>Business</a>
+        
+        <a href='https://cocoamon.com/tag/swift/'>swift</a>
+        
+    </div>
+</section>
+
+
+		</div><!-- .sidebar-inside -->
+	</div><!-- .sidebar-scrollable -->
+</aside><!-- .sidebar -->
+    
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-59324716-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-59324716-1', { 'anonymize_ip': true });
+  </script>
+
+    <!-- Javascript Assets -->
+    <script src="/assets/js/jquery-3.3.1.min.js"></script>
+    <script src="/assets/js/plugins.js"></script>
+    <script src="/assets/js/custom.js"></script>
+
+</body>
+
+</html>
