@@ -129,7 +129,6 @@
             <p><p>Some time ago I had to convert an Objective-C category I use to load UIView’s from XIB’s.</p>
 
 <p>Here is the category:</p>
-
 <div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@implementation</span> <span class="nc">UIView</span> <span class="p">(</span><span class="nl">NIB</span><span class="p">)</span>
 
 <span class="k">+</span> <span class="p">(</span><span class="n">UIView</span> <span class="o">*</span><span class="p">)</span><span class="n">loadInstanceFromNib</span>
@@ -229,6 +228,7 @@ The XIB is called CustomView.xib. We need to strip the module name from the stri
 <span class="p">}</span>
 </code></pre></div></div>
 <p>The type annotation is needed to let the compiler determine the type of T.</p>
+
 </p>
         
     </div><!-- .post-content -->

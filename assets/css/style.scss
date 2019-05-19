@@ -1,35 +1,12 @@
---- 
-# Only the essential Sass file needs front matter. The dashes are enough. 
+---
+sitemap: true
 ---
 
-/**
- * Horace 1.2.0
- * By Just Good Themes
- */
-/**
- * Table of Contents
- * ----------------------------------------------------------------------------
- * 0. Icons
- * 1. Reset
- * 2. General
- * 3. Structure
- * 4. Site Header
- * 5. Content
- *   5.1 Posts and Pages
- *   5.2 Comments
- *   5.3 Paging Navigation
- * 6. Sidebar
- * 7. Widgets
- * 8. Site Footer
- * 9. Media Queries
-*/
-
-@import
-"variables", 
-"icons",
-"reset",
-"general"
-;
+@import "variables"; 
+@import "icons";
+@import "reset";
+@import "general";
+@import "codestyle";
 
 /**
  * 3. Structure
