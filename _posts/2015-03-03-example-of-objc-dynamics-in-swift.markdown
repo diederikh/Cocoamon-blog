@@ -57,7 +57,7 @@ The _is_ operator lets you test if an object is of a certain class. `"Hello" is 
 
 The _as?_ operator used in an _if let_ construct will type cast the object to a type if the type matches.
 
-``` swift
+```swift
 // object is of type Any
 if let text = object as? String {
 	// we only get here if object is a String. text is of type String
@@ -66,7 +66,7 @@ if let text = object as? String {
 
 We can use the _as?_ operator to test if the top level object is of our desired type.
 
-``` swift
+```swift
  for object in topLevelObjects {
  	if let view = object as? self {
        	return view
@@ -79,7 +79,7 @@ Unfortunately, we cannot use _self_ as the return type. Swift wants to known the
 We want this extension to be useable for any `UIView` subclass. We can use Swift [Generics][1] to accomplish that:
 
 
-``` swift
+```swift
 extension UIView {
     class func loadInstanceFromNib<T: UIView>() -> T? {
         var className = T.description()
@@ -99,7 +99,7 @@ extension UIView {
 
 Instead of looping through the top level objects with a for-loop, a more functional approach could be taken. Using a filter on the top level objects array will give us only the objects that match our criteria. This time we can use the _is_ operator.
 
-``` swift
+```swift
 extension UIView {
     static func loadInstanceFromNib<T: UIView>() -> T? {
         var className = T.description()
@@ -114,7 +114,7 @@ extension UIView {
 
 The extension can be used in the following way:
 
-``` swift
+```swift
 if let view:CustomView = UIView.loadInstanceFromNib() {
 	// Do something with the view
 }
